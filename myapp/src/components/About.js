@@ -64,7 +64,7 @@ const About = () => {
     <section className='ab_profile'>
       <div className='container'>
         <div className='row'>
-          <div className='col-lg-12 col-md-12 col-12 m-'>
+          <div className='col-lg-12 col-md-12 col-12 m-auto'>
 
             <div className='row abt_profile'>
               <div className='col-md-4' style={{ padding: "0" }}>
