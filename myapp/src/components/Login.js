@@ -27,11 +27,28 @@ const Login = () => {
       alert("Invalid Email and Password!!!")
     } else {
       localStorage.setItem('jwtoken', data.token)
+      const authToken = data.token;
+
+      // Set the token in a cookie with an expiration date
+      document.cookie = `authToken=${authToken}; path=/; secure; SameSite=Strict`;
+      
+      function getAuthToken() {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.startsWith('authToken=')) {
+            return cookie.substring('authToken='.length, cookie.length);
+          }
+        }
+        return null; // Token not found
+      }
+      
+     getAuthToken();
       alert("Login Successfull")
       navigate('/about')
     }
   }
-
+ 
 
 
   return (<>
