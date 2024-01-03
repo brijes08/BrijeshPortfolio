@@ -66,7 +66,7 @@ const Main = () => {
   const [userData, setUserData] = useState({});
   const forMainData = async () => {
     try {
-      const res = await fetch('http://localhost:5001/getdata', {
+      const res = await fetch('https://portfoliodb-wj77.onrender.com/getdata', {
         method: 'GET',
         headers: {
           Accept: 'application/json',

@@ -13,7 +13,7 @@ const About = () => {
   const [userData, setUserData] = useState({});
   const forAboutData = async () => {
     try {
-      const res = await fetch('http://localhost:5001/about', {
+      const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
         method: 'GET',
         headers: {
           Accept: 'application/json',

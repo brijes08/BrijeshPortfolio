@@ -6,7 +6,7 @@ const Logout = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch("http://localhost:5001/logout", {
+    fetch("https://portfoliodb-wj77.onrender.com/logout", {
       method: 'GET',
       headers: {
         Accept: "application/json",

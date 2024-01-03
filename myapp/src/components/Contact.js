@@ -6,7 +6,7 @@ const Contact = () => {
   const [userData, setUserData] = useState({ name: "", email: "", phone: "", message: "" });
   const forContactData = async () => {
     try {
-      const res = await fetch('http://localhost:5001/getdata', {
+      const res = await fetch('https://portfoliodb-wj77.onrender.com/getdata', {
         method: 'GET',
         headers: {
           Accept: 'application/json',
@@ -36,7 +36,7 @@ const Contact = () => {
 
     const { name, email, phone, message } = userData;
 
-    const res = await fetch('http://localhost:5001/contact', {
+    const res = await fetch('https://portfoliodb-wj77.onrender.com/contact', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

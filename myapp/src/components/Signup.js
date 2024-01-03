@@ -38,7 +38,7 @@ const Signup = () => {
     formData.append('images', images);
     formData.append('file', file);
     
-    const res = await fetch('http://localhost:5001/register', {
+    const res = await fetch('https://portfoliodb-wj77.onrender.com/register', {
       method:"POST",
       body: formData,
     })
