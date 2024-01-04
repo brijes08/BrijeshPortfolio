@@ -10,6 +10,7 @@ const Login = () => {
 
   const LoginUser = async (e) => {
     e.preventDefault();
+    try {
     const res = await fetch('https://portfoliodb-wj77.onrender.com/signin', {
       credentials: 'include',
       method: "POST",
@@ -26,8 +27,10 @@ const Login = () => {
     if (res.status === 400 || !data) {
       alert("Invalid Email and Password!!!")
     } else {
-      localStorage.setItem('jwtoken', data.token)
       const authToken = data.token;
+
+      // Store the token in local storage
+      localStorage.setItem('jwtoken', authToken);
 
       // Set the token in a cookie with an expiration date
       document.cookie = `authToken=${authToken}; path=/; secure; SameSite=Strict`;
@@ -47,6 +50,10 @@ const Login = () => {
       alert("Login Successfull")
       navigate('/about')
     }
+  } catch (error) {
+    console.error('Error during login:', error.message);
+    alert('An error occurred during login.');
+  }
   }
  
 
