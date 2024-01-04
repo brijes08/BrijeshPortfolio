@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import TypingEffect from './TypingEffect';
 import brijesh from '../images/brijesh.webp'
 import sumit from '../images/sumit.webp'
@@ -41,8 +41,8 @@ const Main = () => {
   const [show, setShow] = useState(false);
 
   const updateTime = () => {
-      let timeupdt = new Date().getHours();
-      settTime(timeupdt)
+    let timeupdt = new Date().getHours();
+    settTime(timeupdt)
   }
   setInterval(updateTime, 1000);
 
@@ -66,25 +66,33 @@ const Main = () => {
   const [userData, setUserData] = useState({});
   const forMainData = async () => {
     try {
+      const authToken = localStorage.getItem('jwtoken');
+
+      if (!authToken) {
+        // Handle the case where the JWT token is not available
+        console.error('JWT token not found');
+        return;
+      }
       const res = await fetch('https://portfoliodb-wj77.onrender.com/getdata', {
         method: 'GET',
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${authToken}` // Include the JWT token in the Authorization header
         },
         credentials: 'include'
       })
 
-      const data = await res.json()
-      setUserData(data)
-      setShow(true)
+      const data = await res.json();
+      setUserData(data);
+      setShow(true);
 
-      if (!res.status === 200) {
-        throw new Error(res.error)
+      if (res.status !== 200) {
+        throw new Error(data.error); // Assuming the error message is available in the response data
       }
-
     } catch (err) {
-      console.log(err)
+      console.error(err);
+      // Handle the error appropriately (e.g., show an error message to the user)
     }
   }
 

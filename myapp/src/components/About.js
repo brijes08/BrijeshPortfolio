@@ -12,12 +12,20 @@ const About = () => {
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState({});
   const forAboutData = async () => {
+    const authToken = localStorage.getItem('jwtoken');
+
+      if (!authToken) {
+        // Handle the case where the JWT token is not available
+        console.error('JWT token not found');
+        return;
+      }
     try {
       const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
         method: 'GET',
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${authToken}` // Include the JWT token in the Authorization header
         },
         credentials: 'include'
       })
