@@ -19,7 +19,7 @@ const Footer = () => {
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${authToken}` // Include the JWT token in the Authorization header
+            Authorization: authToken // Include the JWT token in the Authorization header
           },
           credentials: 'include'
         })
