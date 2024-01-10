@@ -59,7 +59,7 @@ const Main = () => {
     css.color = 'orange';
   } else {
     greeting = 'Hope You Had a Great Day Today';
-    css.color = 'black';
+    css.color = '#a8a8a8';
   }
 
 
