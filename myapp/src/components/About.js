@@ -11,7 +11,7 @@ const About = () => {
   const navigate = useNavigate()
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState({});
-  
+
   const forAboutData = async () => {
     const authToken = localStorage.getItem('jwtoken');
 
@@ -27,7 +27,7 @@ const About = () => {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${authToken}` // Include the JWT token in the Authorization header
+          Authorization:authToken // Include the JWT token in the Authorization header
         },
         credentials: 'include'
       })
