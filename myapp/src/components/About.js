@@ -11,6 +11,7 @@ const About = () => {
   const navigate = useNavigate()
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState({});
+  
   const forAboutData = async () => {
     const authToken = localStorage.getItem('jwtoken');
 
