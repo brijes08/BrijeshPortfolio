@@ -150,13 +150,13 @@ const About = () => {
                   <form className="updateFormAbout">
                     <ul>
                       <li><p>Your User ID is</p><b>{!show ? "User ID" : userData._id}</b></li>
-                      <li className='nameAbout'><p>Name</p><b>{!editBtn ? !show ? "User Name" : userData.name :               <input type="text" name="name" value={updtUserData.name} onChange={handleInput} required/> 
+                      <li className='nameAbout'><p>Name</p><b>{!editBtn ? !show ? "User Name" : userData.name :               <input type="text" name="name" value={userData.name} onChange={handleInput} required/> 
                       }</b></li>
-                      <li className='nameAbout'><p>Designation</p><b>{!editBtn ? !show ? "User Designation" : userData.work : <input type="text"  name="work" value={updtUserData.work} onChange={handleInput} required /> 
+                      <li className='nameAbout'><p>Designation</p><b>{!editBtn ? !show ? "User Designation" : userData.work : <input type="text"  name="work" value={userData.work} onChange={handleInput} required /> 
                       }</b></li>
-                      <li className='emailAbout'><p>Email</p><b>{!editBtn ? !show ? "User Email" : userData.email :           <input type="email"  name="email" value={updtUserData.email} onChange={handleInput} required/> 
+                      <li className='emailAbout'><p>Email</p><b>{!editBtn ? !show ? "User Email" : userData.email :           <input type="email"  name="email" value={userData.email} onChange={handleInput} required/> 
                       }</b></li>
-                      <li><p>Phone</p><b>{!editBtn ? !show ? "User Mobile Number" : userData.phone :                          <input type="tel"  name="phone" value={updtUserData.phone} onChange={handleInput} pattern="[1-9]{1}[0-9]{9}" minLength="10" maxLength="10" required  /> 
+                      <li><p>Phone</p><b>{!editBtn ? !show ? "User Mobile Number" : userData.phone :                          <input type="tel"  name="phone" value={userData.phone} onChange={handleInput} pattern="[1-9]{1}[0-9]{9}" minLength="10" maxLength="10" required  /> 
                       }</b></li>
 
                       {!editBtn ? "" : <li><div></div><input type="submit" value="Update" onClick={postData} /></li>}
