@@ -46,6 +46,7 @@ const Footer = () => {
     }
   
     const contactSubmit = async (e) => {
+      const authToken = localStorage.getItem('jwtoken');
       e.preventDefault()
   
       const {name, email, phone, subject, message} = userData;
