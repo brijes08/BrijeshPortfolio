@@ -25,6 +25,7 @@ const About = () => {
   const postData = async (e) =>{
     e.preventDefault()
 
+    console.log(userData, 'userData')
     const {id, name, email, phone, work} = userData
 
     const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
