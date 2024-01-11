@@ -22,14 +22,19 @@ const About = () => {
   const handleInput = (e) =>{
     setUserData({...userData, [e.target.name]:e.target.value})
   }
+
   const postData = async (e) =>{
     e.preventDefault()
 
     console.log(userData, 'userData')
-    const {_id, name, email, phone, work} = userData
-
+    const {_id, name, email, phone, work} = userData;
+console.log(name,':- name', email, ':- email', phone, work)
     const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
+      credentials: 'include',
       method:"POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({_id, name, email, phone, work }),
     })
 
