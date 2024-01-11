@@ -68,11 +68,11 @@ const Main = () => {
     try {
       const authToken = localStorage.getItem('jwtoken');
 
-      // if (!authToken) {
-      //   // Handle the case where the JWT token is not available
-      //   console.error('JWT token not found');
-      //   return;
-      // }
+      if (!authToken) {
+        // Handle the case where the JWT token is not available
+        console.warn('JWT token not found');
+        return;
+      }
       const res = await fetch('https://portfoliodb-wj77.onrender.com/getdata', {
         method: 'GET',
         headers: {
