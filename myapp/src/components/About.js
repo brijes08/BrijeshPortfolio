@@ -108,13 +108,14 @@ const About = () => {
                 </div>
                 <div className='pfl_dtls'>
                   <h3>Your Details Are</h3>
-                  <form>
+                  <form className="updateFormAbout">
                     <ul>
                       <li><p>Your User ID is</p><b>{!show ? "User ID" : userData._id}</b></li>
                       <li className='nameAbout'><p>Name</p><b>{!show ? "User Name" : userData.name} <input type="text" /></b></li>
                       <li className='nameAbout'><p>Designation</p><b>{!show ? "User Designation" : userData.work} <input type="text" /></b></li>
                       <li className='emailAbout'><p>Email</p><b>{!show ? "User Email" : userData.email} <input type="email" /></b></li>
                       <li><p>Phone</p><b>{!show ? "User Mobile Number" : userData.phone} <input type="tel" /></b></li>
+                      <li><input type="submit" /></li>
                     </ul>
                   </form>
                 </div>
