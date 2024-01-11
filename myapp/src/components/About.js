@@ -11,6 +11,15 @@ const About = () => {
   const navigate = useNavigate()
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState({});
+  
+  const [editBtn, setEditBtn] = useState(false);
+
+  const editBtnAbout = () => {
+    setEditBtn(true)
+    if(editBtn === true){
+      setEditBtn(false)
+    }
+  }
 
   const forAboutData = async () => {
     const authToken = localStorage.getItem('jwtoken');
@@ -107,15 +116,20 @@ const About = () => {
                   <p>I want to make your onboarding experience free of worry. Feel free to send me an email if you have any questions at any point in time. I also recommend checking out these resources to get you off the ground.</p>
                 </div>
                 <div className='pfl_dtls'>
-                  <h3>Your Details Are</h3>
+                  <h3 className="frUpdtFromBtnAbout">Your Details Are <div className="updateButtonAbout" onClick={editBtnAbout}>Edit</div></h3>
                   <form className="updateFormAbout">
                     <ul>
                       <li><p>Your User ID is</p><b>{!show ? "User ID" : userData._id}</b></li>
-                      <li className='nameAbout'><p>Name</p><b>{!show ? "User Name" : userData.name} <input type="text" /></b></li>
-                      <li className='nameAbout'><p>Designation</p><b>{!show ? "User Designation" : userData.work} <input type="text" /></b></li>
-                      <li className='emailAbout'><p>Email</p><b>{!show ? "User Email" : userData.email} <input type="email" /></b></li>
-                      <li><p>Phone</p><b>{!show ? "User Mobile Number" : userData.phone} <input type="tel" /></b></li>
-                      <li><input type="submit" /></li>
+                      <li className='nameAbout'><p>Name</p><b>{!editBtn ? !show ? "User Name" : userData.name :               <input type="text" /> 
+                      }</b></li>
+                      <li className='nameAbout'><p>Designation</p><b>{!editBtn ? !show ? "User Designation" : userData.work : <input type="text" /> 
+                      }</b></li>
+                      <li className='emailAbout'><p>Email</p><b>{!editBtn ? !show ? "User Email" : userData.email :           <input type="email" /> 
+                      }</b></li>
+                      <li><p>Phone</p><b>{!editBtn ? !show ? "User Mobile Number" : userData.phone :                          <input type="tel" /> 
+                      }</b></li>
+
+                      {!editBtn ? "" : <li><div></div><input type="submit" value="Update" /></li>}
                     </ul>
                   </form>
                 </div>

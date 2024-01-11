@@ -2268,3 +2268,36 @@ img.serviceReactIconHover {
     display: block !important;
     width: 100%;
 }
+
+
+
+
+
+
+
+
+
+h3.frUpdtFromBtnAbout {
+    display: flex;
+    justify-content: space-between;
+}
+form.updateFormAbout input[type="submit"] {
+    margin-top: 0px;
+    color: #fff;
+    padding: 10px 30px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+form.updateFormAbout input {
+    padding: 6px 10px;
+}
+/* form.updateFormAbout ul li:last-child {
+    justify-content: end;
+} */
+.updateButtonAbout {
+    background: #3ebeb3;
+    padding: 3px 10px 5px;
+    font-size: 15px;
+    border-radius: 50px;
+    color: #fff;
+}
