@@ -11,21 +11,21 @@ const About = () => {
   const navigate = useNavigate()
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState({});
-  const [updtUserData, setUpdtUserData] = useState({
-    id:userData._id,
-    name: userData.name,
-    email: userData.email,
-    phone: userData.phone,
-    work: userData.work,
-  });
+  // const [updtUserData, setUpdtUserData] = useState({
+  //   id:userData._id,
+  //   name: userData.name,
+  //   email: userData.email,
+  //   phone: userData.phone,
+  //   work: userData.work,
+  // });
 
   const handleInput = (e) =>{
-    setUpdtUserData({...updtUserData, [e.target.name]:e.target.value})
+    setUserData({...userData, [e.target.name]:e.target.value})
   }
   const postData = async (e) =>{
     e.preventDefault()
 
-    const {id, name, email, phone, work} = updtUserData
+    const {id, name, email, phone, work} = userData
 
     const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
       method:"POST",
