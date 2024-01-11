@@ -19,30 +19,30 @@ const About = () => {
   //   work: userData.work,
   // });
 
-  const handleInput = (e) =>{
-    setUserData({...userData, [e.target.name]:e.target.value})
+  const handleInput = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value })
   }
 
-  const postData = async (e) =>{
+  const postData = async (e) => {
     e.preventDefault()
- 
-    const {_id, name, email, phone, work} = userData; 
+
+    const { _id, name, email, phone, work } = userData;
     const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
       credentials: 'include',
-      method:"POST",
+      method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({_id, name, email, phone, work }),
+      body: JSON.stringify({ _id, name, email, phone, work }),
     })
 
     const data = await res.json()
-     
+
     if (res.status === 400 || !data) {
       forAboutData()
       alert("User Detailes Update Failed")
     } else {
-      alert("User Detailes Updated Successfull") 
+      alert("User Detailes Updated Successfull")
       setEditBtn(false)
     }
   }
@@ -52,7 +52,7 @@ const About = () => {
   const [editBtn, setEditBtn] = useState(false);
   const editBtnAbout = () => {
     setEditBtn(true)
-    if(editBtn === true){
+    if (editBtn === true) {
       setEditBtn(false)
     }
   }
@@ -124,6 +124,14 @@ const About = () => {
             <div className='row abt_profile'>
               <div className='col-md-4' style={{ padding: "0" }}>
                 <div className='prfl_img'>
+                  <div className="editImgBtn">
+                    <form>
+                      <label>
+                        <input type="file" />
+                        <i className="fas fa-edit"></i>
+                      </label>
+                    </form>
+                  </div>
                   <img src={!show ? image : userData.images} alt="UserImage" />
                   {/* <ul>
                     <li>
@@ -152,19 +160,14 @@ const About = () => {
                   <p>I want to make your onboarding experience free of worry. Feel free to send me an email if you have any questions at any point in time. I also recommend checking out these resources to get you off the ground.</p>
                 </div>
                 <div className='pfl_dtls'>
-                  <h3 className="frUpdtFromBtnAbout">Your Details Are <div className="updateButtonAbout" onClick={editBtnAbout}>Edit</div></h3>
+                  <h3 className="frUpdtFromBtnAbout">Your Details Are <div className="updateButtonAbout" onClick={editBtnAbout}>Edit <i className="fas fa-edit"></i></div></h3>
                   <form className="updateFormAbout">
                     <ul>
                       <li><p>Your User ID is</p><b>{!show ? "User ID" : userData._id}</b></li>
-                      <li className='nameAbout'><p>Name</p><b>{!editBtn ? !show ? "User Name" : userData.name :               <input type="text" name="name" value={userData.name} onChange={handleInput} required/> 
-                      }</b></li>
-                      <li className='nameAbout'><p>Designation</p><b>{!editBtn ? !show ? "User Designation" : userData.work : <input type="text"  name="work" value={userData.work} onChange={handleInput} required /> 
-                      }</b></li>
-                      <li className='emailAbout'><p>Email</p><b>{!editBtn ? !show ? "User Email" : userData.email :           <input type="email"  name="email" value={userData.email} onChange={handleInput} required/> 
-                      }</b></li>
-                      <li><p>Phone</p><b>{!editBtn ? !show ? "User Mobile Number" : userData.phone :                          <input type="tel"  name="phone" value={userData.phone} onChange={handleInput} pattern="[1-9]{1}[0-9]{9}" minLength="10" maxLength="10" required  /> 
-                      }</b></li>
-
+                      <li className='nameAbout'><p>Name</p><b>{!editBtn ? !show ? "User Name" : userData.name : <input type="text" name="name" value={userData.name} onChange={handleInput} required />}</b></li>
+                      <li className='nameAbout'><p>Designation</p><b>{!editBtn ? !show ? "User Designation" : userData.work : <input type="text" name="work" value={userData.work} onChange={handleInput} required />}</b></li>
+                      <li className='emailAbout'><p>Email</p><b>{!editBtn ? !show ? "User Email" : userData.email : <input type="email" name="email" value={userData.email} onChange={handleInput} required />}</b></li>
+                      <li><p>Phone</p><b>{!editBtn ? !show ? "User Mobile Number" : userData.phone : <input type="tel" name="phone" value={userData.phone} onChange={handleInput} pattern="[1-9]{1}[0-9]{9}" minLength="10" maxLength="10" required />}</b></li>
                       {!editBtn ? "" : <li><div></div><input type="submit" value="Update" onClick={postData} /></li>}
                     </ul>
                   </form>
