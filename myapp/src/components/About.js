@@ -11,9 +11,39 @@ const About = () => {
   const navigate = useNavigate()
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState({});
-  
-  const [editBtn, setEditBtn] = useState(false);
+  const [updtUserData, setUpdtUserData] = useState({
+    id:userData._id,
+    name: userData.name,
+    email: userData.email,
+    phone: userData.phone,
+    work: userData.work,
+  });
 
+  const handleInput = (e) =>{
+    setUpdtUserData({...updtUserData, [e.target.name]:e.target.value})
+  }
+  const postData = async (e) =>{
+    e.preventDefault()
+
+    const {id, name, email, phone, work} = updtUserData
+
+    const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
+      method:"POST",
+      body: JSON.stringify({id, name, email, phone, work }),
+    })
+
+    const data = await res.json()
+     
+    if (res.status === 400 || !data) {
+      alert("User Detailes Update Failed")
+    } else {
+      alert("User Detailes Updated Successfull") 
+    }
+  }
+
+
+
+  const [editBtn, setEditBtn] = useState(false);
   const editBtnAbout = () => {
     setEditBtn(true)
     if(editBtn === true){
@@ -27,7 +57,7 @@ const About = () => {
     if (!authToken) {
       // Handle the case where the JWT token is not available
       // console.error('JWT token not found');
-      navigate('/login')
+      // navigate('/login')
       return;
     }
     try {
@@ -52,7 +82,7 @@ const About = () => {
 
     } catch (err) {
       console.log(err)
-      navigate('/login')
+      // navigate('/login')
     }
   }
 
@@ -120,16 +150,16 @@ const About = () => {
                   <form className="updateFormAbout">
                     <ul>
                       <li><p>Your User ID is</p><b>{!show ? "User ID" : userData._id}</b></li>
-                      <li className='nameAbout'><p>Name</p><b>{!editBtn ? !show ? "User Name" : userData.name :               <input type="text" /> 
+                      <li className='nameAbout'><p>Name</p><b>{!editBtn ? !show ? "User Name" : userData.name :               <input type="text" name="name" value={updtUserData.name} onChange={handleInput} required/> 
                       }</b></li>
-                      <li className='nameAbout'><p>Designation</p><b>{!editBtn ? !show ? "User Designation" : userData.work : <input type="text" /> 
+                      <li className='nameAbout'><p>Designation</p><b>{!editBtn ? !show ? "User Designation" : userData.work : <input type="text"  name="work" value={updtUserData.work} onChange={handleInput} required /> 
                       }</b></li>
-                      <li className='emailAbout'><p>Email</p><b>{!editBtn ? !show ? "User Email" : userData.email :           <input type="email" /> 
+                      <li className='emailAbout'><p>Email</p><b>{!editBtn ? !show ? "User Email" : userData.email :           <input type="email"  name="email" value={updtUserData.email} onChange={handleInput} required/> 
                       }</b></li>
-                      <li><p>Phone</p><b>{!editBtn ? !show ? "User Mobile Number" : userData.phone :                          <input type="tel" /> 
+                      <li><p>Phone</p><b>{!editBtn ? !show ? "User Mobile Number" : userData.phone :                          <input type="tel"  name="phone" value={updtUserData.phone} onChange={handleInput} pattern="[1-9]{1}[0-9]{9}" minLength="10" maxLength="10" required  /> 
                       }</b></li>
 
-                      {!editBtn ? "" : <li><div></div><input type="submit" value="Update" /></li>}
+                      {!editBtn ? "" : <li><div></div><input type="submit" value="Update" onClick={postData} /></li>}
                     </ul>
                   </form>
                 </div>
