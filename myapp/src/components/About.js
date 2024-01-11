@@ -25,10 +25,8 @@ const About = () => {
 
   const postData = async (e) =>{
     e.preventDefault()
-
-    console.log(userData, 'userData')
-    const {_id, name, email, phone, work} = userData;
-console.log(name,':- name', email, ':- email', phone, work)
+ 
+    const {_id, name, email, phone, work} = userData; 
     const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
       credentials: 'include',
       method:"POST",
