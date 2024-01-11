@@ -15,24 +15,24 @@ const About = () => {
   const forAboutData = async () => {
     const authToken = localStorage.getItem('jwtoken');
 
-      if (!authToken) {
-        // Handle the case where the JWT token is not available
-        // console.error('JWT token not found');
-        navigate('/login')
-        return;
-      }
+    if (!authToken) {
+      // Handle the case where the JWT token is not available
+      // console.error('JWT token not found');
+      navigate('/login')
+      return;
+    }
     try {
       const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
         method: 'GET',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          Authorization:authToken // Include the JWT token in the Authorization header
+          Authorization: authToken // Include the JWT token in the Authorization header
         },
         credentials: 'include'
       })
 
-      
+
       const data = await res.json()
       setUserData(data)
       setShow(true)
@@ -51,7 +51,7 @@ const About = () => {
     forAboutData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
   return (<>
     {/* main breadcrump start */}
     <section className="bg-breadcrump p-0">
@@ -108,13 +108,15 @@ const About = () => {
                 </div>
                 <div className='pfl_dtls'>
                   <h3>Your Details Are</h3>
-                  <ul>
-                    <li><p>Your User ID is</p><b>{!show ? "User ID" : userData._id}</b></li>
-                    <li className='nameAbout'><p>Name</p><b>{!show ? "User Name" : userData.name}</b></li>
-                    <li className='nameAbout'><p>Designation</p><b>{!show ? "User Designation" : userData.work}</b></li>
-                    <li className='emailAbout'><p>Email</p><b>{!show ? "User Email" : userData.email}</b></li>
-                    <li><p>Phone</p><b>{!show ? "User Mobile Number" : userData.phone}</b></li>
-                  </ul>
+                  <form>
+                    <ul>
+                      <li><p>Your User ID is</p><b>{!show ? "User ID" : userData._id}</b></li>
+                      <li className='nameAbout'><p>Name</p><b>{!show ? "User Name" : userData.name} <input type="text" /></b></li>
+                      <li className='nameAbout'><p>Designation</p><b>{!show ? "User Designation" : userData.work} <input type="text" /></b></li>
+                      <li className='emailAbout'><p>Email</p><b>{!show ? "User Email" : userData.email} <input type="email" /></b></li>
+                      <li><p>Phone</p><b>{!show ? "User Mobile Number" : userData.phone} <input type="tel" /></b></li>
+                    </ul>
+                  </form>
                 </div>
               </div>
             </div>
@@ -125,23 +127,23 @@ const About = () => {
     </section>
 
     <section className="about fromAboutPage">
-        <div className="max-width">
-          <h2 className="title">About me</h2>
-          <div className="about-content">
-            <div className="column left">
-              <img src={brijesh} alt="" />
-            </div>
-            <div className="column right">
-              <div className="text">I'm Brijesh and I'm a <span className="typing"><TypingEffect /></span></div>
-              <p>Experienced Website and Wordpress Developer with over years of experience in Abacusdesk IT Solution Pvt. Ltd. And now I am working as a React Developer at Web2Rise. Excellent reputation for resolving problems and improving customer satisfaction.
-                Enthusiastic Website Developer eager to contribute to team success through hard work, attention to detail and excellent organizational skills.
-                Organized and dependable candidate successful at managing multiple priorities with a positive attitude.
-                Hardworking and passionate job seeker with strong organizational skills eager to secure entry-level Website Developer position. Ready to help team for achieve goals. </p>
-              <a target="_brijes" href={Resume}>Download My CV</a>
-            </div>
+      <div className="max-width">
+        <h2 className="title">About me</h2>
+        <div className="about-content">
+          <div className="column left">
+            <img src={brijesh} alt="" />
+          </div>
+          <div className="column right">
+            <div className="text">I'm Brijesh and I'm a <span className="typing"><TypingEffect /></span></div>
+            <p>Experienced Website and Wordpress Developer with over years of experience in Abacusdesk IT Solution Pvt. Ltd. And now I am working as a React Developer at Web2Rise. Excellent reputation for resolving problems and improving customer satisfaction.
+              Enthusiastic Website Developer eager to contribute to team success through hard work, attention to detail and excellent organizational skills.
+              Organized and dependable candidate successful at managing multiple priorities with a positive attitude.
+              Hardworking and passionate job seeker with strong organizational skills eager to secure entry-level Website Developer position. Ready to help team for achieve goals. </p>
+            <a target="_brijes" href={Resume}>Download My CV</a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
   </>)
 }
