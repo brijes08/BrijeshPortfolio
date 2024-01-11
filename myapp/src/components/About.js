@@ -39,6 +39,7 @@ const About = () => {
     const data = await res.json()
      
     if (res.status === 400 || !data) {
+      forAboutData()
       alert("User Detailes Update Failed")
     } else {
       alert("User Detailes Updated Successfull") 
