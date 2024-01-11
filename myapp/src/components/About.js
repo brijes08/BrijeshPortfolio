@@ -42,6 +42,7 @@ const About = () => {
       alert("User Detailes Update Failed")
     } else {
       alert("User Detailes Updated Successfull") 
+      setEditBtn(false)
     }
   }
 
