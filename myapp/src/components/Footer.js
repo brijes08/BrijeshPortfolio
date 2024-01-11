@@ -32,7 +32,7 @@ const Footer = () => {
         }
   
       } catch (err) {
-        console.log(err)
+        console.warn(err, 'JWT token not found')
       }
     }
   

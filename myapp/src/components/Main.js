@@ -91,7 +91,7 @@ const Main = () => {
         throw new Error(data.error); // Assuming the error message is available in the response data
       }
     } catch (err) {
-      console.error(err);
+      console.warn(err, 'JWT token not found');
       // Handle the error appropriately (e.g., show an error message to the user)
     }
   }
