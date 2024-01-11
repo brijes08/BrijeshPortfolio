@@ -26,11 +26,11 @@ const About = () => {
     e.preventDefault()
 
     console.log(userData, 'userData')
-    const {id, name, email, phone, work} = userData
+    const {_id, name, email, phone, work} = userData
 
     const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
       method:"POST",
-      body: JSON.stringify({id, name, email, phone, work }),
+      body: JSON.stringify({_id, name, email, phone, work }),
     })
 
     const data = await res.json()
