@@ -17,7 +17,7 @@ const About = () => {
 
       if (!authToken) {
         // Handle the case where the JWT token is not available
-        console.error('JWT token not found');
+        // console.error('JWT token not found');
         navigate('/login')
         return;
       }
