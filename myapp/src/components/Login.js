@@ -48,7 +48,7 @@ const Login = () => {
       
      getAuthToken();
       alert("Login Successfull")
-      navigate('/')
+      navigate('/about')
     }
   } catch (error) {
     console.error('Error during login:', error.message);

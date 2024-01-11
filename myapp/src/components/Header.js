@@ -21,7 +21,7 @@ const Header = () => {
       },
       credentials: 'include'
     }).then((res) => {
-      console.log(res, "logotwrvfd")
+      // console.log(res, "logotwrvfd")
       if (res.status === 200) {
         localStorage.removeItem("jwtoken");
         navigate("/login");
