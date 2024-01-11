@@ -55,6 +55,7 @@ const Footer = () => {
         method:'POST',
         headers:{
           "Content-Type": "application/json",
+          Authorization: authToken
         },
         body: JSON.stringify({name, email, phone, subject, message})
       })
