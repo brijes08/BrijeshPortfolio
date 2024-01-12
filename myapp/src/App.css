@@ -2303,8 +2303,22 @@ form.updateFormAbout .updateButtonAbout {
     right: -20px;
     top: -20px;
     z-index: 1;
-    border-radius: 50px;
+    
+    width: 55px;
+    height: 55px;
+    font-weight: bold;
     background: #3ebeb3;
+    font-size: 15px;
+    border-radius: 50px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 0;
+    margin-top: 0px;
+    text-align: center;
+    letter-spacing: normal !important;
 }
 form.updateFormAbout .updateButtonAbout input {
     width: 55px;

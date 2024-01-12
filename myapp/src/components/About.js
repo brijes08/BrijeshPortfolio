@@ -121,7 +121,7 @@ const About = () => {
         <div className='row'>
           <div className='col-lg-12 col-md-12 col-12 m-auto'>
             <form className="updateFormAbout">
-              <div className="updateButtonAbout"><input type={!editBtn ? "" : "submit"} value={!editBtn ? "Edit" : "Save"}  onClick={!editBtn ? editBtnAbout : postData} /></div>
+              <div className="updateButtonAbout" onClick={!editBtn ? editBtnAbout : null} >{!editBtn ? "Edit" : <input type="submit" value="Save"  onClick={postData} />}</div>
               <div className='row abt_profile'>
                 <div className='col-md-4' style={{ padding: "0" }}>
                   <div className='prfl_img'>
