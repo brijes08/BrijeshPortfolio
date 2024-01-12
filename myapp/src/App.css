@@ -2158,7 +2158,7 @@ a.haveAcc {
 .pfl_dtls ul li:last-child {
     border        : none;
     margin-bottom : 0;
-    padding-bottom: 0;
+    /* padding-bottom: 0; */
 }
 
 .pfl_dtls ul li {
@@ -2168,7 +2168,7 @@ a.haveAcc {
     width          : 100%;
     margin-bottom  : 10px;
     border-bottom  : 1px solid #ddd;
-    padding        : 0px 10px 10px 0px;
+    padding        : 0px 10px 10px 10px;
 }
 
 .pfl_dtls h3 {
@@ -2294,6 +2294,9 @@ h3.frUpdtFromBtnAbout {
 } */
 form.updateFormAbout input {
     padding: 6px 10px;
+    border-color: #3ebeb3;
+    border-radius: 5px;
+    font-weight: bold;
 }
 /* form.updateFormAbout ul li:last-child {
     justify-content: end;
@@ -2363,4 +2366,7 @@ form.updateFormAbout {
 }
 .abt_profile .editImgBtn input[type="file"] {
     display: none;
+}
+.forDetailsBrdr {
+    border: 1px solid #ededed;
 }
