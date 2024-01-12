@@ -120,8 +120,9 @@ const About = () => {
       <div className='container'>
         <div className='row'>
           <div className='col-lg-12 col-md-12 col-12 m-auto'>
+
             <form className="updateFormAbout">
-              <div className="updateButtonAbout" onClick={!editBtn ? editBtnAbout : null} >{!editBtn ? "Edit" : <input type="submit" value="Save"  onClick={postData} />}</div>
+              <div className="updateButtonAbout" onClick={!editBtn ? editBtnAbout : null} >{!editBtn ? "Edit" : <input type="submit" value="Save" onClick={postData} />}</div>
               <div className='row abt_profile'>
                 <div className='col-md-4' style={{ padding: "0" }}>
                   <div className='prfl_img'>
@@ -131,7 +132,8 @@ const About = () => {
                           <input type="file" />
                           <i className="fas fa-edit"></i>
                         </label>
-                      </div>)}
+                      </div>
+                    )}
                     <img src={!show ? image : userData.images} alt="UserImage" />
                     {/* <ul>
                     <li>
@@ -161,14 +163,13 @@ const About = () => {
                   </div>
                   <div className='pfl_dtls'>
                     <h3 className="frUpdtFromBtnAbout">Your Details Are </h3>
-
                     <ul>
                       <li><p>Your User ID is</p><b>{!show ? "User ID" : userData._id}</b></li>
                       <li className='nameAbout'><p>Name</p><b>{!editBtn ? !show ? "User Name" : userData.name : <input type="text" name="name" value={userData.name} onChange={handleInput} required />}</b></li>
                       <li className='nameAbout'><p>Designation</p><b>{!editBtn ? !show ? "User Designation" : userData.work : <input type="text" name="work" value={userData.work} onChange={handleInput} required />}</b></li>
                       <li className='emailAbout'><p>Email</p><b>{!editBtn ? !show ? "User Email" : userData.email : <input type="email" name="email" value={userData.email} onChange={handleInput} required />}</b></li>
                       <li><p>Phone</p><b>{!editBtn ? !show ? "User Mobile Number" : userData.phone : <input type="tel" name="phone" value={userData.phone} onChange={handleInput} pattern="[1-9]{1}[0-9]{9}" minLength="10" maxLength="10" required />}</b></li>
-                      {/* {!editBtn ? "" : <li><div></div><input type="submit" value="Save" /></li>} */}
+                      {/* {!editBtn ? "" : <li><div></div><input type="submit" value="Update" /></li>} */}
                     </ul>
                   </div>
                 </div>
