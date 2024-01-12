@@ -121,14 +121,14 @@ const About = () => {
         <div className='row'>
           <div className='col-lg-12 col-md-12 col-12 m-auto'>
             <form className="updateFormAbout">
-              <div className="updateButtonAbout"><input type={!editBtn ? "btn" : "submit"} value={!editBtn ? "Edit" : "Save"}  onClick={!editBtn ? editBtnAbout : postData} /></div>
+              <div className="updateButtonAbout"><input type={!editBtn ? "" : "submit"} value={!editBtn ? "Edit" : "Save"}  onClick={!editBtn ? editBtnAbout : postData} /></div>
               <div className='row abt_profile'>
                 <div className='col-md-4' style={{ padding: "0" }}>
                   <div className='prfl_img'>
                     {!editBtn ? "" : (
                       <div className="editImgBtn">
                         <label>
-                          {/* <input type="file" /> */}
+                          <input type="file" />
                           <i className="fas fa-edit"></i>
                         </label>
                       </div>)}
