@@ -2145,7 +2145,10 @@ a.haveAcc {
 }
 
 .pfl_dtls ul li p {
-    margin-bottom: 0px;
+    padding: 15.6px 0px;
+    line-height: 0px;
+    color: #555555;
+    font-weight: 700;
 }
 
 .pfl_dtls ul {
@@ -2161,6 +2164,7 @@ a.haveAcc {
 .pfl_dtls ul li {
     display        : flex;
     justify-content: space-between;
+    align-items: center;
     width          : 100%;
     margin-bottom  : 10px;
     border-bottom  : 1px solid #ddd;
@@ -2281,33 +2285,54 @@ h3.frUpdtFromBtnAbout {
     display: flex;
     justify-content: space-between;
 }
-form.updateFormAbout input[type="submit"] {
+/* form.updateFormAbout input[type="submit"] {
     margin-top: 0px;
     color: #fff;
     padding: 10px 30px;
     font-size: 18px;
     letter-spacing: 1px;
-}
+} */
 form.updateFormAbout input {
     padding: 6px 10px;
 }
 /* form.updateFormAbout ul li:last-child {
     justify-content: end;
 } */
-.updateButtonAbout {
+form.updateFormAbout .updateButtonAbout {
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    z-index: 1;
+    border-radius: 50px;
     background: #3ebeb3;
-    padding: 3px 10px 5px;
+}
+form.updateFormAbout .updateButtonAbout input {
+    width: 55px;
+    height: 55px;
+    font-weight: bold;
+    background: #3ebeb3;
     font-size: 15px;
     border-radius: 50px;
     color: #fff;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    border: none;
+    padding: 0;
+    margin-top: 0px;
+    text-align: center;
+    letter-spacing: normal !important;
+}
+form.updateFormAbout .updateButtonAbout input:focus-visible{
+    border: none;
+    outline: none;
 }
 .updateButtonAbout i.fa-edit {
     margin-left: 6px;
 }
-
+form.updateFormAbout {
+    position: relative;
+}
 .abt_profile .prfl_img{
     position: relative;
 }
