@@ -2413,4 +2413,5 @@ ul.menu.headerProfile {
 }
 .toggleBox li{
     margin-bottom: 15px;
+    display: block !important;
 }
