@@ -1,17 +1,13 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import pageBanner from '../images/page-banner.jpg'
-// import image from "../images/user.png"
-// import { useNavigate } from 'react-router-dom';
-import brijesh from '../images/brijesh.webp'
-import Resume from '../images/brijesh-cv.pdf'
-import TypingEffect from './TypingEffect';
+import image from "../images/user.png"
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
 
-  // const navigate = useNavigate()
-  // const [show, setShow] = useState(false);
-  // const [userData, setUserData] = useState({});
-
+  const navigate = useNavigate()
+  const [show, setShow] = useState(false);
+  const [userData, setUserData] = useState({});
   // const [updtUserData, setUpdtUserData] = useState({
   //   id:userData._id,
   //   name: userData.name,
@@ -20,83 +16,83 @@ const About = () => {
   //   work: userData.work,
   // });
 
-  // const handleInput = (e) => {
-  //   setUserData({ ...userData, [e.target.name]: e.target.value })
-  // }
+  const handleInput = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value })
+  }
 
-  // const postData = async (e) => {
-  //   e.preventDefault()
+  const postData = async (e) => {
+    e.preventDefault()
 
-  //   const { _id, name, email, phone, work } = userData;
-  //   const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
-  //     credentials: 'include',
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({ _id, name, email, phone, work }),
-  //   })
+    const { _id, name, email, phone, work } = userData;
+    const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
+      credentials: 'include',
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ _id, name, email, phone, work }),
+    })
 
-  //   const data = await res.json()
+    const data = await res.json()
 
-  //   if (res.status === 400 || !data) {
-  //     forAboutData()
-  //     alert("User Detailes Update Failed")
-  //   } else {
-  //     alert("User Detailes Updated Successfull")
-  //     setEditBtn(false)
-  //   }
-  // }
-
-
-
-  // const [editBtn, setEditBtn] = useState(false);
-  // const editBtnAbout = () => {
-  //   setEditBtn(true)
-  //   if (editBtn === true) {
-  //     setEditBtn(false)
-  //   }
-  // }
-
-  // const forAboutData = async () => {
-  //   const authToken = localStorage.getItem('jwtoken');
-
-  //   if (!authToken) {
-  //     // Handle the case where the JWT token is not available
-  //     // console.error('JWT token not found');
-  //     // navigate('/login')
-  //     return;
-  //   }
-  //   try {
-  //     const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
-  //       method: 'GET',
-  //       headers: {
-  //         Accept: 'application/json',
-  //         'Content-Type': 'application/json',
-  //         Authorization: authToken // Include the JWT token in the Authorization header
-  //       },
-  //       credentials: 'include'
-  //     })
+    if (res.status === 400 || !data) {
+      forAboutData()
+      alert("User Detailes Update Failed")
+    } else {
+      alert("User Detailes Updated Successfull")
+      setEditBtn(false)
+    }
+  }
 
 
-  //     const data = await res.json()
-  //     setUserData(data)
-  //     setShow(true)
 
-  //     if (!res.status === 200) {
-  //       throw new Error(res.error)
-  //     }
+  const [editBtn, setEditBtn] = useState(false);
+  const editBtnAbout = () => {
+    setEditBtn(true)
+    if (editBtn === true) {
+      setEditBtn(false)
+    }
+  }
 
-  //   } catch (err) {
-  //     console.log(err)
-  //     // navigate('/login')
-  //   }
-  // }
+  const forAboutData = async () => {
+    const authToken = localStorage.getItem('jwtoken');
 
-  // useEffect(() => {
-  //   forAboutData()
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+    if (!authToken) {
+      // Handle the case where the JWT token is not available
+      // console.error('JWT token not found');
+      navigate('/login')
+      return;
+    }
+    try {
+      const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: authToken // Include the JWT token in the Authorization header
+        },
+        credentials: 'include'
+      })
+
+
+      const data = await res.json()
+      setUserData(data)
+      setShow(true)
+
+      if (!res.status === 200) {
+        throw new Error(res.error)
+      }
+
+    } catch (err) {
+      console.log(err)
+      navigate('/login')
+    }
+  }
+
+  useEffect(() => {
+    forAboutData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (<>
     {/* main breadcrump start */}
@@ -105,10 +101,10 @@ const About = () => {
       <div className="breadcrump-main-paent">
         <div className="container">
           <div className="menu-breadcrump">
-            <h1>About</h1>
+            <h1>Your Profile</h1>
             <ul>
               <li><a exact="true" href="/">Home</a></li>
-              <li>About</li>
+              <li>Your Profile</li>
             </ul>
           </div>
         </div>
@@ -117,7 +113,7 @@ const About = () => {
     {/* main breadcrump end */}
 
 
-    {/* <section className='ab_profile'>
+    <section className='ab_profile'>
       <div className='container'>
         <div className='row'>
           <div className='col-lg-12 col-md-12 col-12 m-auto'>
@@ -136,7 +132,7 @@ const About = () => {
                       </div>
                     )}
                     <img src={!show ? image : userData.images} alt="UserImage" />
-                    <ul>
+                    {/* <ul>
                     <li>
                       <a href="https://www.instagram.com/brijes08" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram" aria-hidden="true"></i> Instagram</a>
                     </li>
@@ -152,7 +148,7 @@ const About = () => {
                     <li>
                       <a href="https://github.com/brijes08" target="_blank" rel="noopener noreferrer"><i className="fab fa-github" aria-hidden="true"></i> Github</a>
                     </li>
-                  </ul> 
+                  </ul> */}
                   </div>
                 </div>
                 <div className='col-md-8'>
@@ -171,7 +167,7 @@ const About = () => {
                         <li className='nameAbout'><p>Designation</p><b>{!editBtn ? !show ? "User Designation" : userData.work : <input type="text" name="work" value={userData.work} onChange={handleInput} required />}</b></li>
                         <li className='emailAbout'><p>Email</p><b>{!editBtn ? !show ? "User Email" : userData.email : <input type="email" name="email" value={userData.email} onChange={handleInput} required />}</b></li>
                         <li><p>Phone</p><b>{!editBtn ? !show ? "User Mobile Number" : userData.phone : <input type="tel" name="phone" value={userData.phone} onChange={handleInput} pattern="[1-9]{1}[0-9]{9}" minLength="10" maxLength="10" required />}</b></li>
-                        {!editBtn ? "" : <li><div></div><input type="submit" value="Update" /></li>}
+                        {/* {!editBtn ? "" : <li><div></div><input type="submit" value="Update" /></li>} */}
                       </ul>
                     </div>
                   </div>
@@ -179,25 +175,6 @@ const About = () => {
               </div>
             </form>
 
-          </div>
-        </div>
-      </div>
-    </section> */}
-
-    <section className="about fromAboutPage">
-      <div className="max-width">
-        <h2 className="title">About me</h2>
-        <div className="about-content">
-          <div className="column left">
-            <img src={brijesh} alt="" />
-          </div>
-          <div className="column right">
-            <div className="text">I'm Brijesh and I'm a <span className="typing"><TypingEffect /></span></div>
-            <p>Experienced Website and Wordpress Developer with over years of experience in Abacusdesk IT Solution Pvt. Ltd. And now I am working as a React Developer at Web2Rise. Excellent reputation for resolving problems and improving customer satisfaction.
-              Enthusiastic Website Developer eager to contribute to team success through hard work, attention to detail and excellent organizational skills.
-              Organized and dependable candidate successful at managing multiple priorities with a positive attitude.
-              Hardworking and passionate job seeker with strong organizational skills eager to secure entry-level Website Developer position. Ready to help team for achieve goals. </p>
-            <a target="_brijes" href={Resume}>Download My CV</a>
           </div>
         </div>
       </div>

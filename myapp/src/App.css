@@ -2370,3 +2370,47 @@ form.updateFormAbout {
 .forDetailsBrdr {
     border: 1px solid #ededed;
 }
+
+
+
+
+
+
+ul.menu.headerProfile {
+    display: flex;
+    align-items: center;
+}
+.profileBtn {
+    width: 40px;
+    border-radius: 100px;
+    height: 40px;
+    overflow: hidden;
+    border: 2px solid #3ebeb3;
+    margin-left: 25px;
+}
+.profileBtn img {
+    width: 100%;
+}
+.profileToggle{
+    position: relative;
+}
+.toggleBox{
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #3ebeb3;
+    padding: 15px 15px 0;
+    box-shadow: 0px 0.5rem 1rem #00000033;
+    margin-top: 10px;
+    width: 165px;
+}
+.toggleBox li a{
+    color: #000 !important;
+    margin-left: 0px !important;
+}
+.toggleBox li a:hover{
+    color: #3ebeb3 !important;
+}
+.toggleBox li{
+    margin-bottom: 15px;
+}

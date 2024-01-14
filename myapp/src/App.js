@@ -8,6 +8,7 @@ import Services from './components/Services'
 import Skills from './components/Skills'
 import MyProjects from './components/MyProjects'
 // import Contact from './components/Contact'
+import Profile from "./components/Profile"
 import Login from './components/Login'
 import Signup from "./components/Signup"
 import Logout from "./components/Logout"
@@ -26,6 +27,7 @@ const App = () => {
       <Route exact="true" path='/skills' element={<Skills />} />
       <Route exact="true" path='/myprojects' element={<MyProjects />} />
       {/* <Route exact="true" path='/contact' element={<Contact />} /> */}
+      <Route exact="true" path='/profile' element={<Profile />} />
       <Route exact="true" path='/login' element={<Login />} />
       <Route exact="true" path='/signup' element={<Signup />} />
       <Route exact="true" path='/logout' element={<Logout />} />
