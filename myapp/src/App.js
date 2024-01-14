@@ -11,7 +11,7 @@ import MyProjects from './components/MyProjects'
 import Profile from "./components/Profile"
 import Login from './components/Login'
 import Signup from "./components/Signup"
-import Logout from "./components/Logout"
+// import Logout from "./components/Logout"
 import ThankYou from "./components/ThankYou"
 import ErrorPage from "./components/ErrorPage"
 import Footer from "./components/Footer"
@@ -30,7 +30,7 @@ const App = () => {
       <Route exact="true" path='/profile' element={<Profile />} />
       <Route exact="true" path='/login' element={<Login />} />
       <Route exact="true" path='/signup' element={<Signup />} />
-      <Route exact="true" path='/logout' element={<Logout />} />
+      {/* <Route exact="true" path='/logout' element={<Logout />} /> */}
       <Route exact="true" path='/thankyou' element={<ThankYou />} />
       <Route path='*' element={<ErrorPage />} />
      </Routes>

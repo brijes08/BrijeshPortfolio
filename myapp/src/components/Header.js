@@ -107,7 +107,7 @@ const Header = () => {
                 {localStorage.getItem("jwtoken") ?
                   <>
                     <li><NavLink exact="true" to="/profile" onClick={toggleFalse} className="menu-btn">Profile</NavLink></li>
-                    <li><NavLink exact="true" to="/logout" onClick={logOutData} className="menu-btn">Logout</NavLink></li>
+                    <li><NavLink exact="true" to="#." onClick={logOutData} className="menu-btn">Logout</NavLink></li>
                     <li><NavLink exact="true" to="/delete" onClick={toggleFalse} className="menu-btn">Delete Account</NavLink></li>
                   </>
                   :
