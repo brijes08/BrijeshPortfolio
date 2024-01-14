@@ -49,7 +49,7 @@ const Login = () => {
       
      getAuthToken();
       alert("Login Successfull")
-      navigate('/profile')
+      navigate('/')
     }
   } catch (error) {
     console.error('Error during login:', error.message);
