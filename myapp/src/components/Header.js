@@ -17,6 +17,7 @@ const Header = () => {
   }, [localStorage])
 
   const logOutData = () => {
+    setToggleStatus(false)
     fetch("https://portfoliodb-wj77.onrender.com/logout", {
       method: 'GET',
       headers: {
@@ -42,6 +43,9 @@ const Header = () => {
     if (toggleStatus === true) {
       setToggleStatus(false)
     }
+  } 
+  const toggleFalse = () => {
+    setToggleStatus(false)
   }
 
   const forAboutData = async () => {
@@ -102,14 +106,14 @@ const Header = () => {
               {!toggleStatus ? "" : (<div className='toggleBox'>
                 {localStorage.getItem("jwtoken") ?
                   <>
-                    <li><NavLink exact="true" to="/profile" className="menu-btn">Profile</NavLink></li>
+                    <li><NavLink exact="true" to="/profile" onClick={toggleFalse} className="menu-btn">Profile</NavLink></li>
                     <li><NavLink exact="true" to="/logout" onClick={logOutData} className="menu-btn">Logout</NavLink></li>
-                    <li><NavLink exact="true" to="/delete" className="menu-btn">Delete Account</NavLink></li>
+                    <li><NavLink exact="true" to="/delete" onClick={toggleFalse} className="menu-btn">Delete Account</NavLink></li>
                   </>
                   :
                   <>
-                    <li><NavLink exact="true" to="/login" className="menu-btn">Login</NavLink></li>
-                    <li><NavLink exact="true" to="/signup" className="menu-btn">Registration</NavLink></li>
+                    <li><NavLink exact="true" to="/login" onClick={toggleFalse} className="menu-btn">Login</NavLink></li>
+                    <li><NavLink exact="true" to="/signup" onClick={toggleFalse} className="menu-btn">Registration</NavLink></li>
                   </>
                 }
               </div>
