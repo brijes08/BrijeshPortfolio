@@ -1546,7 +1546,7 @@ a.haveAcc {
     text-transform: capitalize;
 }
 
-.emailAbout {
+.emailAbout b {
     text-transform: lowercase;
 }
 
