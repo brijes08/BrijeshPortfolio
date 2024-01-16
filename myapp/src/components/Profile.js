@@ -19,7 +19,9 @@ const About = () => {
   const handleInput = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value })
   }
-
+  const handleFileInput = (e) => {
+    setUserData({...userData, file:e.target.files[0], [e.target.name]:e.target.value})
+  }
   const postData = async (e) => {
     e.preventDefault()
     const {_id, name, email, phone, work, images, file} = userData
@@ -137,7 +139,7 @@ const About = () => {
                     {!editBtn ? "" : (
                       <div className="editImgBtn">
                         <label>
-                          <input type="file" />
+                          <input type="file" accept=".png, .jpg, .jpeg, .gif" name="images" value={userData.images} onChange={handleFileInput} required/>
                           <i className="fas fa-edit"></i>
                         </label>
                       </div>
