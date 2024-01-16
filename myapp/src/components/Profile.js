@@ -22,26 +22,37 @@ const About = () => {
 
   const postData = async (e) => {
     e.preventDefault()
+    const {_id, name, email, phone, work, images, file} = userData
 
-    const { _id, name, email, phone, work } = userData;
-    const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
-      credentials: 'include',
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ _id, name, email, phone, work }),
-    })
+    const formData  = new FormData();
+    formData.append('_id', _id);
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('work', work);
+    formData.append('images', images);
+    formData.append('file', file);
+    
+    console.log(formData)
 
-    const data = await res.json()
+    // const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
+    //   credentials: 'include',
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: formData,
+    // })
 
-    if (res.status === 400 || !data) {
-      forAboutData()
-      alert("User Detailes Update Failed")
-    } else {
-      alert("User Detailes Updated Successfull")
-      setEditBtn(false)
-    }
+    // const data = await res.json()
+
+    // if (res.status === 400 || !data) {
+    //   forAboutData()
+    //   alert("User Detailes Update Failed")
+    // } else {
+    //   alert("User Detailes Updated Successfull")
+    //   setEditBtn(false)
+    // }
   }
 
 
