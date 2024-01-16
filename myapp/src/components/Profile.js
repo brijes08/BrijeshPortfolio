@@ -35,24 +35,24 @@ const About = () => {
     
     console.log(formData)
 
-    // const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
-    //   credentials: 'include',
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: formData,
-    // })
+    const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
+      credentials: 'include',
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: formData,
+    })
 
-    // const data = await res.json()
+    const data = await res.json()
 
-    // if (res.status === 400 || !data) {
-    //   forAboutData()
-    //   alert("User Detailes Update Failed")
-    // } else {
-    //   alert("User Detailes Updated Successfull")
-    //   setEditBtn(false)
-    // }
+    if (res.status === 400 || !data) {
+      forAboutData()
+      alert("User Detailes Update Failed")
+    } else {
+      alert("User Detailes Updated Successfull")
+      setEditBtn(false)
+    }
   }
 
 
