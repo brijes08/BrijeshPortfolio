@@ -38,6 +38,30 @@ const Header = () => {
     })
   }
 
+  const deleteAcc = () => {
+    const { _id } = userData
+    setToggleStatus(false)
+    fetch("https://portfoliodb-wj77.onrender.com/delete", {
+      method: 'POST',
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: 'include',
+      body: JSON.stringify({ _id })
+    }).then((res) => {
+      // console.log(res, "logotwrvfd")
+      if (res.status === 200) {
+        localStorage.removeItem("jwtoken");
+        navigate("/signup");
+      } else {
+        throw new Error(res.error);
+      }
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
+
   const toggleProfile = () => {
     setToggleStatus(true)
     if (toggleStatus === true) {
@@ -108,7 +132,7 @@ const Header = () => {
                   <>
                     <li><NavLink exact="true" to="/profile" onClick={toggleFalse} className="menu-btn">Profile</NavLink></li>
                     <li><NavLink exact="true" to="#." onClick={logOutData} className="menu-btn">Logout</NavLink></li>
-                    <li><NavLink exact="true" to="/delete" onClick={toggleFalse} className="menu-btn">Delete Account</NavLink></li>
+                    <li><NavLink exact="true" to="/delete" onClick={deleteAcc} className="menu-btn">Delete Account</NavLink></li>
                   </>
                   :
                   <>
