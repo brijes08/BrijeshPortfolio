@@ -7,17 +7,8 @@ const Header = ({profileData }) => {
   const [toggleStatus, setToggleStatus] = useState(false);
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState(null);
-  // const [login, setLogin] = useState(localStorage.getItem('jwtoken'));
   const navigate = useNavigate()
-  useEffect(() => {
-    // setLogin(localStorage.getItem('jwtoken'));
-    setUserData(profileData)
-    if(localStorage.getItem('jwtoken')){
-      setShow(true)
-    }
-    // eslint-disable-next-line
-  }, [localStorage, profileData])
-
+  
   const logOutData = () => {
     setToggleStatus(false)
     fetch("https://portfoliodb-wj77.onrender.com/logout", {
@@ -79,48 +70,14 @@ const Header = ({profileData }) => {
   const toggleFalse = () => {
     setToggleStatus(false)
   }
-  // setUserData(profileData)
-  // console.log(profileData, 'profileData')
 
-  // const forAboutData = async () => {
-  //   const authToken = localStorage.getItem('jwtoken');
-
-  //   if (!authToken) {
-  //     // Handle the case where the JWT token is not available
-  //     // console.error('JWT token not found');
-  //     // navigate('/login')
-  //     return;
-  //   }
-  //   try {
-  //     const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
-  //       method: 'GET',
-  //       headers: {
-  //         Accept: 'application/json',
-  //         'Content-Type': 'application/json',
-  //         Authorization: authToken // Include the JWT token in the Authorization header
-  //       },
-  //       credentials: 'include'
-  //     })
-
-
-  //     const data = await res.json()
-  //     setUserData(data)
-  //     setShow(true)
-
-  //     if (!res.status === 200) {
-  //       throw new Error(res.error)
-  //     }
-
-  //   } catch (err) {
-  //     console.log(err)
-  //     // navigate('/login')
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   forAboutData()
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    setUserData(profileData)
+    if(localStorage.getItem('jwtoken')){
+      setShow(true)
+    }
+    // eslint-disable-next-line
+  }, [localStorage, profileData])
 
   return (
     <>
