@@ -1,5 +1,5 @@
 import './App.css'
-import React from 'react'
+import React,{useState} from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Header from "./components/Header"
 import Main from "./components/Main"
@@ -17,9 +17,15 @@ import ErrorPage from "./components/ErrorPage"
 import Footer from "./components/Footer"
 
 const App = () => {
+  const [profileData, setProfileData] = useState('');
+
+  const handleProfileDataChange = (dataFromProfile) => { 
+    setProfileData(dataFromProfile);
+  };
+
   return (
     <>
-     <Header />
+     <Header profileData={profileData} />
      <Routes>
       <Route exact="true" path='/' element={<Main />} />
       <Route exact="true" path='/about' element={<About />} />
@@ -27,7 +33,7 @@ const App = () => {
       <Route exact="true" path='/skills' element={<Skills />} />
       <Route exact="true" path='/myprojects' element={<MyProjects />} />
       {/* <Route exact="true" path='/contact' element={<Contact />} /> */}
-      <Route exact="true" path='/profile' element={<Profile />} />
+      <Route exact="true" path='/profile' element={<Profile onProfileDataChange={handleProfileDataChange}  />} />
       <Route exact="true" path='/login' element={<Login />} />
       <Route exact="true" path='/signup' element={<Signup />} />
       {/* <Route exact="true" path='/logout' element={<Logout />} /> */}

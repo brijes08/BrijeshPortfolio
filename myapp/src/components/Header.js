@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import image from "../images/user.png"
 
-const Header = () => {
+const Header = ({profileData }) => {
 
   const [toggleStatus, setToggleStatus] = useState(false);
   const [show, setShow] = useState(false);
@@ -72,6 +72,7 @@ const Header = () => {
     setToggleStatus(false)
   }
 
+  console.log(profileData, 'profileData')
   const forAboutData = async () => {
     const authToken = localStorage.getItem('jwtoken');
 
