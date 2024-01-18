@@ -7,7 +7,7 @@ const About = () => {
 
   const navigate = useNavigate()
   const [show, setShow] = useState(false);
-  const [studnetImage, setStudentImage] = useState(null);
+  const [studentImage, setStudentImage] = useState(null);
   const [userData, setUserData] = useState({});
   // const [updtUserData, setUpdtUserData] = useState({
   //   id:userData._id,
@@ -28,7 +28,7 @@ const About = () => {
   }
   const postData = async (e) => {
     e.preventDefault()
-    const {_id, name, email, phone, work, images, file} = userData;
+    const {_id, name, email, phone, work, file} = userData;
 
     const formData  = new FormData();
     formData.append('_id', _id);
@@ -36,9 +36,8 @@ const About = () => {
     formData.append('email', email);
     formData.append('phone', phone);
     formData.append('work', work);
-    if(studnetImage){
-      formData.append('images', studnetImage);
-      formData.append('images', images);
+    if(studentImage){
+      formData.append('images', studentImage);
       formData.append('file', file);
     }
     
