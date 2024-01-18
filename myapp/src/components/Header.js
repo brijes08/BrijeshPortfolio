@@ -71,47 +71,48 @@ const Header = ({profileData }) => {
   const toggleFalse = () => {
     setToggleStatus(false)
   }
+  setUserData(profileData)
+  // console.log(profileData, 'profileData')
 
-  console.log(profileData, 'profileData')
-  const forAboutData = async () => {
-    const authToken = localStorage.getItem('jwtoken');
+  // const forAboutData = async () => {
+  //   const authToken = localStorage.getItem('jwtoken');
 
-    if (!authToken) {
-      // Handle the case where the JWT token is not available
-      // console.error('JWT token not found');
-      // navigate('/login')
-      return;
-    }
-    try {
-      const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          Authorization: authToken // Include the JWT token in the Authorization header
-        },
-        credentials: 'include'
-      })
+  //   if (!authToken) {
+  //     // Handle the case where the JWT token is not available
+  //     // console.error('JWT token not found');
+  //     // navigate('/login')
+  //     return;
+  //   }
+  //   try {
+  //     const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
+  //       method: 'GET',
+  //       headers: {
+  //         Accept: 'application/json',
+  //         'Content-Type': 'application/json',
+  //         Authorization: authToken // Include the JWT token in the Authorization header
+  //       },
+  //       credentials: 'include'
+  //     })
 
 
-      const data = await res.json()
-      setUserData(data)
-      setShow(true)
+  //     const data = await res.json()
+  //     setUserData(data)
+  //     setShow(true)
 
-      if (!res.status === 200) {
-        throw new Error(res.error)
-      }
+  //     if (!res.status === 200) {
+  //       throw new Error(res.error)
+  //     }
 
-    } catch (err) {
-      console.log(err)
-      // navigate('/login')
-    }
-  }
+  //   } catch (err) {
+  //     console.log(err)
+  //     // navigate('/login')
+  //   }
+  // }
 
-  useEffect(() => {
-    forAboutData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   forAboutData()
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <>
