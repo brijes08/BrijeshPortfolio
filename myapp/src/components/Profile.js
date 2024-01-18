@@ -7,6 +7,7 @@ const About = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [studentImage, setStudentImage] = useState(null);
+  const [file, setFile] = useState();
   const [userData, setUserData] = useState({
     _id: '',
     name: '',
@@ -24,6 +25,7 @@ const About = () => {
     if (selectedFile) {
       setStudentImage(selectedFile);
     }
+    setFile(URL.createObjectURL(e.target.files[0]));
   };
 
   const postData = async (e) => {
@@ -55,6 +57,8 @@ const About = () => {
       } else {
         alert('User Details Updated Successfully');
         forAboutData()
+        setFile()
+        setStudentImage(null)
       }
     } catch (error) {
       console.error('Error updating user:', error);
@@ -155,7 +159,8 @@ const About = () => {
                           </label>
                         </div>
                       )}
-                      <img src={!show ? image : userData.images} alt="UserImage" />
+                       
+                      <img src={!show ? image : !studentImage ? userData.images : file} alt="UserImage" />
                     </div>
                   </div>
                   {/* <ul>
