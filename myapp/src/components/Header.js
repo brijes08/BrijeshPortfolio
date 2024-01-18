@@ -13,7 +13,6 @@ const Header = ({profileData }) => {
 
   useEffect(() => {
     setLogin(localStorage.getItem('jwtoken'));
-    setShow(true)
     // eslint-disable-next-line
   }, [localStorage])
 
