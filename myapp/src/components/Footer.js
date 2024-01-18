@@ -3,10 +3,11 @@ import {useNavigate} from "react-router-dom"
 
 const Footer = ({profileData}) => {
 
+  console.log(profileData)
     const navigate = useNavigate()
     const [userData, setUserData] = useState({name:"", email:"", phone:"", subject:"", message:""});
 
-    setUserData({...userData, name:profileData.name, email:profileData.email, phone:profileData.phone})
+    // setUserData({...userData, name:profileData.name, email:profileData.email, phone:profileData.phone})
 
 
     // const forContactData = async () => {
