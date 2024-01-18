@@ -15,8 +15,6 @@ const Header = ({profileData }) => {
     setUserData(profileData)
     if(localStorage.getItem('jwtoken')){
       setShow(true)
-    } else {
-      setShow(false)
     }
     // eslint-disable-next-line
   }, [localStorage, profileData])
@@ -35,6 +33,7 @@ const Header = ({profileData }) => {
       if (res.status === 200) {
         localStorage.removeItem("jwtoken");
         deleteCookie('authToken')
+        setShow(false)
         navigate("/login");
       } else {
         throw new Error(res.error);
