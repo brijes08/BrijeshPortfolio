@@ -6,7 +6,7 @@ const Header = ({profileData }) => {
 
   const [toggleStatus, setToggleStatus] = useState(false);
   const [show, setShow] = useState(false);
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState(profileData);
   // eslint-disable-next-line
   const [login, setLogin] = useState(localStorage.getItem('jwtoken'));
   const navigate = useNavigate()
@@ -71,7 +71,7 @@ const Header = ({profileData }) => {
   const toggleFalse = () => {
     setToggleStatus(false)
   }
-  setUserData(profileData)
+  // setUserData(profileData)
   // console.log(profileData, 'profileData')
 
   // const forAboutData = async () => {
