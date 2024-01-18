@@ -57,7 +57,6 @@ const About = () => {
       } else {
         alert('User Details Updated Successfully');
         forAboutData()
-        setFile()
         setStudentImage(null)
       }
     } catch (error) {
@@ -94,7 +93,7 @@ const About = () => {
       const data = await res.json();
       setUserData(data);
       setShow(true);
-
+      setFile()
       if (!res.ok) {
         throw new Error(data.error);
       }
