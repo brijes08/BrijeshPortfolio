@@ -15,6 +15,8 @@ const Header = ({profileData }) => {
     setUserData(profileData)
     if(localStorage.getItem('jwtoken')){
       setShow(true)
+    } else {
+      setShow(false)
     }
     // eslint-disable-next-line
   }, [localStorage, profileData])
