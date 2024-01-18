@@ -50,9 +50,9 @@ const Header = () => {
       credentials: 'include',
       body: JSON.stringify({ _id })
     }).then((res) => {
-      // console.log(res, "logotwrvfd")
       if (res.status === 200) {
         localStorage.removeItem("jwtoken");
+        setShow(false)
         navigate("/signup");
       } else {
         throw new Error(res.error);
