@@ -94,7 +94,8 @@ const About = () => {
       setUserData(data);
       setShow(true);
       // setTimeout(setFile(), setStudentImage(null),console.log('Empty'), 5000);
-      setFile(), setStudentImage(null)
+      setFile()
+      setStudentImage(null)
       if (!res.ok) {
         throw new Error(data.error);
       }
