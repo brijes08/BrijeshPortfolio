@@ -1,49 +1,45 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useNavigate} from "react-router-dom"
 
-const Footer = ({profileData}) => {
+const Footer = () => {
 
     const navigate = useNavigate()
-    const [userData, setUserData] = useState({name:profileData.name, email:profileData.email, phone:profileData.phone, subject:"", message:""});
+    const [userData, setUserData] = useState({name:"", email:"", phone:"", subject:"", message:""});
+    const forContactData = async () => {
+        const authToken = localStorage.getItem('jwtoken');
 
-    // setUserData({...userData, name:profileData.name, email:profileData.email, phone:profileData.phone})
-
-
-    // const forContactData = async () => {
-    //     const authToken = localStorage.getItem('jwtoken');
-
-    //   if (!authToken) {
-    //     // Handle the case where the JWT token is not available
-    //     console.warn('JWT token not found');
-    //     return;
-    //   }
-    //   try {
-    //     const res = await fetch('https://portfoliodb-wj77.onrender.com/getdata', {
-    //       method: 'GET',
-    //       headers: {
-    //         Accept: 'application/json',
-    //         'Content-Type': 'application/json',
-    //         Authorization: authToken // Include the JWT token in the Authorization header
-    //       },
-    //       credentials: 'include'
-    //     })
+      if (!authToken) {
+        // Handle the case where the JWT token is not available
+        console.warn('JWT token not found');
+        return;
+      }
+      try {
+        const res = await fetch('https://portfoliodb-wj77.onrender.com/getdata', {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: authToken // Include the JWT token in the Authorization header
+          },
+          credentials: 'include'
+        })
   
-    //     const data = await res.json()
-    //     setUserData({...userData, name:data.name, email:data.email, phone:data.phone})
+        const data = await res.json()
+        setUserData({...userData, name:data.name, email:data.email, phone:data.phone})
   
-    //     if (!res.status === 200) {
-    //       throw new Error(res.error)
-    //     }
+        if (!res.status === 200) {
+          throw new Error(res.error)
+        }
   
-    //   } catch (err) {
-    //     console.warn(err, 'JWT token not found')
-    //   }
-    // }
+      } catch (err) {
+        console.warn(err, 'JWT token not found')
+      }
+    }
   
-    // useEffect(() => {
-    //   forContactData()
-    //   // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
+    useEffect(() => {
+      forContactData()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
   
     const handleInput = (e) => {
       setUserData({...userData, [e.target.name]:e.target.value})
