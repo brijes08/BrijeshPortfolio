@@ -10,7 +10,7 @@ const Header = ({profileData }) => {
   // eslint-disable-next-line
   const [login, setLogin] = useState(localStorage.getItem('jwtoken'));
   const navigate = useNavigate()
-
+console.log(userData , "image")
   useEffect(() => {
     setLogin(localStorage.getItem('jwtoken'));
     // eslint-disable-next-line
