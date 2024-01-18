@@ -33,14 +33,15 @@ const Header = ({profileData }) => {
       if (res.status === 200) {
         localStorage.removeItem("jwtoken");
         deleteCookie('authToken')
-        setShow(false)
         navigate("/login");
       } else {
         throw new Error(res.error);
       }
     }).catch((err) => {
       console.log(err)
-    })
+    }).finally(() => {
+      setShow(false); // Move setShow(false) here
+    });
   }
   function deleteCookie(name) {
     document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
