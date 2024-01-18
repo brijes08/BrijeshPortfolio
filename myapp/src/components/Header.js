@@ -34,6 +34,7 @@ const Header = ({profileData }) => {
       // console.log(res, "logotwrvfd")
       if (res.status === 200) {
         localStorage.removeItem("jwtoken");
+        deleteCookie('authToken')
         navigate("/login");
       } else {
         throw new Error(res.error);
@@ -41,6 +42,9 @@ const Header = ({profileData }) => {
     }).catch((err) => {
       console.log(err)
     })
+  }
+  function deleteCookie(name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
   }
 
   const deleteAcc = () => {
