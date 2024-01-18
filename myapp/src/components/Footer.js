@@ -5,48 +5,12 @@ const Footer = ({profileData }) => {
 
     const navigate = useNavigate()
     const [userData, setUserData] = useState({name:"", email:"", phone:"", subject:"", message:""});
-    // console.log(userData,"dataFooter")
-    // const forContactData = async () => {
-    //     const authToken = localStorage.getItem('jwtoken');
-
-    //   if (!authToken) {
-    //     // Handle the case where the JWT token is not available
-    //     console.warn('JWT token not found');
-    //     return;
-    //   }
-    //   try {
-    //     const res = await fetch('https://portfoliodb-wj77.onrender.com/getdata', {
-    //       method: 'GET',
-    //       headers: {
-    //         Accept: 'application/json',
-    //         'Content-Type': 'application/json',
-    //         Authorization: authToken // Include the JWT token in the Authorization header
-    //       },
-    //       credentials: 'include'
-    //     })
-  
-    //     const data = await res.json()
-    //     setUserData({...userData, name:data.name, email:data.email, phone:data.phone})
-  
-    //     if (!res.status === 200) {
-    //       throw new Error(res.error)
-    //     }
-  
-    //   } catch (err) {
-    //     console.warn(err, 'JWT token not found')
-    //   }
-    // }
-
-    const dataRemove = () => {
-      setUserData({name:"", email:"", phone:"", subject:"", message:""})
-    }
   
     useEffect(() => {
-      // forContactData()
+      if (profileData && Object.keys(profileData).length > 0) {
       setUserData({...userData, name:profileData.name, email:profileData.email, phone:profileData.phone})
-      // console.log(typeof(profileData))
-      if(profileData.typeof === "string"){
-        dataRemove()
+      } else {
+        setUserData({name:"", email:"", phone:"", subject:"", message:""})
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [profileData]);
