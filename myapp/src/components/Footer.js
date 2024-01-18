@@ -5,7 +5,7 @@ const Footer = ({profileData }) => {
 
     const navigate = useNavigate()
     const [userData, setUserData] = useState({name:"", email:"", phone:"", subject:"", message:""});
-    console.log(userData,"dataFooter")
+    // console.log(userData,"dataFooter")
     // const forContactData = async () => {
     //     const authToken = localStorage.getItem('jwtoken');
 
@@ -36,10 +36,17 @@ const Footer = ({profileData }) => {
     //     console.warn(err, 'JWT token not found')
     //   }
     // }
+
+    const dataRemove = () => {
+      setUserData({name:"", email:"", phone:"", subject:"", message:""})
+    }
   
     useEffect(() => {
       // forContactData()
       setUserData({...userData, name:profileData.name, email:profileData.email, phone:profileData.phone})
+      if(profileData === false){
+        dataRemove()
+      }
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [profileData]);
   
