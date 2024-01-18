@@ -7,11 +7,8 @@ const Footer = ({ profileData }) => {
   const [userData, setUserData] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
 
   useEffect(() => {
-    if (profileData && Object.keys(profileData).length > 0) {
-      setUserData({ ...userData, name: profileData.name, email: profileData.email, phone: profileData.phone })
-    } else {
-      setUserData({ name: "", email: "", phone: "", subject: "", message: "" })
-    }
+      setUserData({ ...userData, name: (profileData && Object.keys(profileData).length > 0 ? profileData.name : ""), email: (profileData && Object.keys(profileData).length > 0 ? profileData.email : ""), phone: (profileData && Object.keys(profileData).length > 0 ? profileData.phone : "") })
+  
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profileData]);
 
