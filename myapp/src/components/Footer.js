@@ -13,7 +13,7 @@ const Footer = ({ profileData }) => {
       setUserData({ name: "", email: "", phone: "", subject: "", message: "" })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [profileData]);
 
   const handleInput = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value })
