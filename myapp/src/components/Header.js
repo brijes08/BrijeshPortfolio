@@ -40,7 +40,7 @@ const Header = ({profileData }) => {
     }).catch((err) => {
       console.log(err)
     }).finally(() => {
-      setShow(false); // Move setShow(false) here
+      setShow(false);
     });
   }
   function deleteCookie(name) {
