@@ -6,15 +6,16 @@ const Header = ({profileData }) => {
 
   const [toggleStatus, setToggleStatus] = useState(false);
   const [show, setShow] = useState(false);
-  const [userData, setUserData] = useState(profileData);
+  const [userData, setUserData] = useState(null);
   // eslint-disable-next-line
   const [login, setLogin] = useState(localStorage.getItem('jwtoken'));
   const navigate = useNavigate()
-console.log(profileData , "image")
+  console.log(userData, "qwertyuio")
   useEffect(() => {
     setLogin(localStorage.getItem('jwtoken'));
+    setUserData(profileData)
     // eslint-disable-next-line
-  }, [localStorage])
+  }, [localStorage, profileData])
 
   const logOutData = () => {
     setToggleStatus(false)
