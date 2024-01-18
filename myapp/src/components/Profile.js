@@ -54,7 +54,7 @@ const About = () => {
         alert('User Details Update Failed');
       } else {
         alert('User Details Updated Successfully');
-       
+        forAboutData()
       }
     } catch (error) {
       console.error('Error updating user:', error);
