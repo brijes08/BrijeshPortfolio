@@ -40,7 +40,7 @@ const App = () => {
       <Route exact="true" path='/thankyou' element={<ThankYou />} />
       <Route path='*' element={<ErrorPage />} />
      </Routes>
-     <Footer/>
+     <Footer profileData={profileData} />
     </>
   )
 }
