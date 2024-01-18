@@ -44,8 +44,8 @@ const Footer = ({profileData }) => {
     useEffect(() => {
       // forContactData()
       setUserData({...userData, name:profileData.name, email:profileData.email, phone:profileData.phone})
-      console.log(typeof(profileData))
-      if(profileData === false){
+      // console.log(typeof(profileData))
+      if(profileData.typeof === "string"){
         dataRemove()
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
