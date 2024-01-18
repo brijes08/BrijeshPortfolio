@@ -93,7 +93,8 @@ const About = () => {
       const data = await res.json();
       setUserData(data);
       setShow(true);
-      setFile()
+      setTimeout(setFile(), 5000);
+      
       if (!res.ok) {
         throw new Error(data.error);
       }
