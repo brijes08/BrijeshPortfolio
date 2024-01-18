@@ -5,6 +5,7 @@ const Footer = ({profileData }) => {
 
     const navigate = useNavigate()
     const [userData, setUserData] = useState({name:"", email:"", phone:"", subject:"", message:""});
+    console.log(userData,"dataFooter")
     // const forContactData = async () => {
     //     const authToken = localStorage.getItem('jwtoken');
 
