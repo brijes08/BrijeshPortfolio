@@ -7,11 +7,10 @@ const Header = ({profileData }) => {
   const [toggleStatus, setToggleStatus] = useState(false);
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState(null);
-  // eslint-disable-next-line
-  const [login, setLogin] = useState(localStorage.getItem('jwtoken'));
+  // const [login, setLogin] = useState(localStorage.getItem('jwtoken'));
   const navigate = useNavigate()
   useEffect(() => {
-    setLogin(localStorage.getItem('jwtoken'));
+    // setLogin(localStorage.getItem('jwtoken'));
     setUserData(profileData)
     if(localStorage.getItem('jwtoken')){
       setShow(true)
