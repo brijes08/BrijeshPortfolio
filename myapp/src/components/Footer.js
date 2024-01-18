@@ -44,6 +44,7 @@ const Footer = ({profileData }) => {
     useEffect(() => {
       // forContactData()
       setUserData({...userData, name:profileData.name, email:profileData.email, phone:profileData.phone})
+      console.log(typeof(profileData))
       if(profileData === false){
         dataRemove()
       }
