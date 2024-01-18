@@ -7,6 +7,7 @@ const About = () => {
 
   const navigate = useNavigate()
   const [show, setShow] = useState(false);
+  const [studnetImage, setStudentImage] = useState(null);
   const [userData, setUserData] = useState({});
   // const [updtUserData, setUpdtUserData] = useState({
   //   id:userData._id,
@@ -20,11 +21,14 @@ const About = () => {
     setUserData({ ...userData, [e.target.name]: e.target.value })
   }
   const handleFileInput = (e) => {
-    setUserData({...userData, file:e.target.files[0], [e.target.name]:e.target.value})
+    const selectedFile = e.target.files[0];
+    if(selectedFile){
+      setStudentImage(selectedFile)
+    }
   }
   const postData = async (e) => {
     e.preventDefault()
-    const {_id, name, email, phone, work, images, file} = userData
+    const {_id, name, email, phone, work, images, file} = userData;
 
     const formData  = new FormData();
     formData.append('_id', _id);
@@ -32,8 +36,12 @@ const About = () => {
     formData.append('email', email);
     formData.append('phone', phone);
     formData.append('work', work);
+    if(studnetImage){
+      formData.append('images', studnetImage);
+    }
     formData.append('images', images);
     formData.append('file', file);
+    
     
     console.log(formData)
 
@@ -139,7 +147,7 @@ const About = () => {
                     {!editBtn ? "" : (
                       <div className="editImgBtn">
                         <label>
-                          <input type="file" accept=".png, .jpg, .jpeg, .gif" name="images" value={userData.images} onChange={handleFileInput} required/>
+                          <input type="file" accept=".png, .jpg, .jpeg, .gif" name="images" onChange={handleFileInput} required/>
                           <i className="fas fa-edit"></i>
                         </label>
                       </div>
