@@ -1,123 +1,112 @@
-import React, { useState, useEffect } from 'react'
-import pageBanner from '../images/page-banner.jpg'
-import image from "../images/user.png"
+import React, { useState, useEffect } from 'react';
+import pageBanner from '../images/page-banner.jpg';
+import image from '../images/user.png';
 import { useNavigate } from 'react-router-dom';
 
 const About = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [studentImage, setStudentImage] = useState(null);
-  const [userData, setUserData] = useState({});
-  // const [updtUserData, setUpdtUserData] = useState({
-  //   id:userData._id,
-  //   name: userData.name,
-  //   email: userData.email,
-  //   phone: userData.phone,
-  //   work: userData.work,
-  // });
+  const [userData, setUserData] = useState({
+    _id: '',
+    name: '',
+    email: '',
+    phone: '',
+    work: '',
+  });
 
   const handleInput = (e) => {
-    setUserData({ ...userData, [e.target.name]: e.target.value })
-  }
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+  };
+
   const handleFileInput = (e) => {
     const selectedFile = e.target.files[0];
-    if(selectedFile){
-      setStudentImage(selectedFile)
+    if (selectedFile) {
+      setStudentImage(selectedFile);
     }
-  }
-  const postData = async (e) => {
-    e.preventDefault()
-    const {_id, name, email, phone, work, file} = userData;
+  };
 
-    const formData  = new FormData();
+  const postData = async (e) => {
+    e.preventDefault();
+    const { _id, name, email, phone, work } = userData;
+
+    const formData = new FormData();
     formData.append('_id', _id);
     formData.append('name', name);
     formData.append('email', email);
     formData.append('phone', phone);
     formData.append('work', work);
-    if(studentImage){
-      formData.append('images', studentImage);
-      formData.append('file', file);
+    if (studentImage) {
+      formData.append('image', studentImage); // Use 'image' as the key for file upload
     }
-    
-    
-    
-    console.log(formData)
 
-    const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
-      credentials: 'include',
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: formData,
-    })
+    try {
+      const res = await fetch('https://portfoliodb-wj77.onrender.com/update', {
+        method: 'POST',
+        credentials: 'include',
+        body: formData,
+      });
 
-    const data = await res.json()
+      const data = await res.json();
 
-    if (res.status === 400 || !data) {
-      forAboutData()
-      alert("User Detailes Update Failed")
-    } else {
-      alert("User Detailes Updated Successfull")
-      setEditBtn(false)
+      if (res.status === 400 || !data) {
+        alert('User Details Update Failed');
+      } else {
+        alert('User Details Updated Successfully');
+      }
+    } catch (error) {
+      console.error('Error updating user:', error);
+      alert('Internal Server Error');
     }
-  }
-
-
+  };
 
   const [editBtn, setEditBtn] = useState(false);
+
   const editBtnAbout = () => {
-    setEditBtn(true)
-    if (editBtn === true) {
-      setEditBtn(false)
-    }
-  }
+    setEditBtn(!editBtn);
+  };
 
   const forAboutData = async () => {
     const authToken = localStorage.getItem('jwtoken');
 
     if (!authToken) {
-      // Handle the case where the JWT token is not available
-      // console.error('JWT token not found');
-      navigate('/login')
+      navigate('/login');
       return;
     }
+
     try {
       const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
         method: 'GET',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          Authorization: authToken // Include the JWT token in the Authorization header
+          Authorization: authToken,
         },
-        credentials: 'include'
-      })
+        credentials: 'include',
+      });
 
+      const data = await res.json();
+      setUserData(data);
+      setShow(true);
 
-      const data = await res.json()
-      setUserData(data)
-      setShow(true)
-
-      if (!res.status === 200) {
-        throw new Error(res.error)
+      if (!res.ok) {
+        throw new Error(data.error);
       }
-
     } catch (err) {
-      console.log(err)
-      navigate('/login')
+      console.error(err);
+      navigate('/login');
     }
-  }
+  };
 
   useEffect(() => {
-    forAboutData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    forAboutData();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (<>
-    {/* main breadcrump start */}
-    <section className="bg-breadcrump p-0">
+  return (
+    <>
+      {/* Main breadcrumb start */}
+      <section className="bg-breadcrump p-0">
       <img src={pageBanner} alt="" />
       <div className="breadcrump-main-paent">
         <div className="container">
@@ -131,29 +120,43 @@ const About = () => {
         </div>
       </div>
     </section>
-    {/* main breadcrump end */}
 
-
-    <section className='ab_profile'>
-      <div className='container'>
-        <div className='row'>
-          <div className='col-lg-12 col-md-12 col-12 m-auto'>
-
-            <form className="updateFormAbout">
-              <div className="updateButtonAbout" onClick={!editBtn ? editBtnAbout : null} >{!editBtn ? "Edit" : <input type="submit" value="Save" onClick={postData} />}</div>
-              <div className='row abt_profile'>
-                <div className='col-md-4' style={{ padding: "0" }}>
-                  <div className='prfl_img'>
-                    {!editBtn ? "" : (
-                      <div className="editImgBtn">
-                        <label>
-                          <input type="file" accept=".png, .jpg, .jpeg, .gif" name="images" onChange={handleFileInput} required/>
-                          <i className="fas fa-edit"></i>
-                        </label>
-                      </div>
-                    )}
-                    <img src={!show ? image : userData.images} alt="UserImage" />
-                    {/* <ul>
+      {/* Main breadcrumb end */}
+      <section className="ab_profile">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 col-md-12 col-12 m-auto">
+              <form className="updateFormAbout">
+                <div
+                  className="updateButtonAbout"
+                  onClick={!editBtn ? editBtnAbout : null}
+                >
+                  {!editBtn ? 'Edit' : <input type="submit" value="Save" onClick={postData} />}
+                </div>
+                <div className="row abt_profile">
+                  {/* ... Your existing code for profile information ... */}
+                  <div className="col-md-4" style={{ padding: '0' }}>
+                    <div className="prfl_img">
+                      {!editBtn ? (
+                        ''
+                      ) : (
+                        <div className="editImgBtn">
+                          <label>
+                            <input
+                              type="file"
+                              accept=".png, .jpg, .jpeg, .gif"
+                              name="image"
+                              onChange={handleFileInput}
+                              required
+                            />
+                            <i className="fas fa-edit"></i>
+                          </label>
+                        </div>
+                      )}
+                      <img src={!show ? image : userData.images} alt="UserImage" />
+                    </div>
+                  </div>
+                  {/* <ul>
                     <li>
                       <a href="https://www.instagram.com/brijes08" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram" aria-hidden="true"></i> Instagram</a>
                     </li>
@@ -171,7 +174,6 @@ const About = () => {
                     </li>
                   </ul> */}
                   </div>
-                </div>
                 <div className='col-md-8'>
                   <div className='prfl_cont' >
                     <h2>Hello {!show ? "User Name" : userData.name}</h2>
@@ -193,15 +195,13 @@ const About = () => {
                     </div>
                   </div>
                 </div>
-              </div>
             </form>
-
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
+  );
+};
 
-  </>)
-}
-
-export default About
+export default About;
