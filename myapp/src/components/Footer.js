@@ -7,10 +7,13 @@ const Footer = ({ profileData }) => {
   const [userData, setUserData] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
 
   useEffect(() => {
-      setUserData({ ...userData, name: (profileData && Object.keys(profileData).length > 0 ? profileData.name : ""), email: (profileData && Object.keys(profileData).length > 0 ? profileData.email : ""), phone: (profileData && Object.keys(profileData).length > 0 ? profileData.phone : "") })
-  
+    if (profileData && Object.keys(profileData).length > 0) {
+      setUserData({ ...userData, name: profileData.name, email: profileData.email, phone: profileData.phone })
+    } else {
+      setUserData({ name: "", email: "", phone: "", subject: "", message: "" })
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profileData]);
+  }, []);
 
   const handleInput = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value })
