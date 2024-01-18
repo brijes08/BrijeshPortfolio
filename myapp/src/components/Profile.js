@@ -27,6 +27,7 @@ const About = () => {
   };
 
   const postData = async (e) => {
+    setEditBtn(false)
     e.preventDefault();
     const { _id, name, email, phone, work } = userData;
 
@@ -53,6 +54,7 @@ const About = () => {
         alert('User Details Update Failed');
       } else {
         alert('User Details Updated Successfully');
+       
       }
     } catch (error) {
       console.error('Error updating user:', error);
