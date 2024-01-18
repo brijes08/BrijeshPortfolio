@@ -38,9 +38,10 @@ const About = () => {
     formData.append('work', work);
     if(studnetImage){
       formData.append('images', studnetImage);
+      formData.append('images', images);
+      formData.append('file', file);
     }
-    formData.append('images', images);
-    formData.append('file', file);
+    
     
     
     console.log(formData)
