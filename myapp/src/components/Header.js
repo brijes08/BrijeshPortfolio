@@ -10,10 +10,12 @@ const Header = ({profileData }) => {
   // eslint-disable-next-line
   const [login, setLogin] = useState(localStorage.getItem('jwtoken'));
   const navigate = useNavigate()
-  console.log(userData, "qwertyuio")
   useEffect(() => {
     setLogin(localStorage.getItem('jwtoken'));
     setUserData(profileData)
+    if(userData === true){
+      setShow(true)
+    }
     // eslint-disable-next-line
   }, [localStorage, profileData])
 
