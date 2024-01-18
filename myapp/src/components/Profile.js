@@ -100,26 +100,26 @@ const About = () => {
 
   useEffect(() => {
     forAboutData();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       {/* Main breadcrumb start */}
       <section className="bg-breadcrump p-0">
-      <img src={pageBanner} alt="" />
-      <div className="breadcrump-main-paent">
-        <div className="container">
-          <div className="menu-breadcrump">
-            <h1>Your Profile</h1>
-            <ul>
-              <li><a exact="true" href="/">Home</a></li>
-              <li>Your Profile</li>
-            </ul>
+        <img src={pageBanner} alt="" />
+        <div className="breadcrump-main-paent">
+          <div className="container">
+            <div className="menu-breadcrump">
+              <h1>Your Profile</h1>
+              <ul>
+                <li><a exact="true" href="/">Home</a></li>
+                <li>Your Profile</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* Main breadcrumb end */}
       <section className="ab_profile">
@@ -173,7 +173,7 @@ const About = () => {
                       <a href="https://github.com/brijes08" target="_blank" rel="noopener noreferrer"><i className="fab fa-github" aria-hidden="true"></i> Github</a>
                     </li>
                   </ul> */}
-                  </div>
+               
                 <div className='col-md-8'>
                   <div className='prfl_cont' >
                     <h2>Hello {!show ? "User Name" : userData.name}</h2>
@@ -195,7 +195,8 @@ const About = () => {
                     </div>
                   </div>
                 </div>
-            </form>
+                </div>
+              </form>
             </div>
           </div>
         </div>
