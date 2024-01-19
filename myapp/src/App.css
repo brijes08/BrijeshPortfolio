@@ -2422,3 +2422,7 @@ ul.menu.headerProfile {
     position: absolute;
     background: linear-gradient(136deg, rgb(96 88 88 / 87%) 33%, rgba(0,0,0,0) 44%);
 }
+
+nav.navbar.sticky .profileBtn {
+    border: 2px solid #ffffff;
+}
