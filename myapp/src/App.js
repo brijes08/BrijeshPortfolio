@@ -18,10 +18,6 @@ import Footer from "./components/Footer"
 
 const App = () => {
   const [profilData, setProfileData] = useState({});
-console.log(profilData,"hgyuhh")
-  // const handleProfileDataChange = (dataFromProfile) => { 
-  //   setProfileData(dataFromProfile);
-  // };
 
   const forAboutData = async () => {
     const authToken = localStorage.getItem('jwtoken');
