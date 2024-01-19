@@ -34,6 +34,7 @@ const App = () => {
       });
 
       const data = await res.json();
+      localStorage.setItem('userData', JSON.stringify(data));
       setProfileData(data)
       if (!res.ok) {
         throw new Error(data.error);
@@ -46,7 +47,7 @@ const App = () => {
   useEffect(() => {
     forAboutData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [localStorage]);
 
 
   return (
