@@ -2415,3 +2415,11 @@ ul.menu.headerProfile {
     margin-bottom: 15px;
     display: block !important;
 }
+
+.editImgBtn_shadow {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background: rgb(255,255,255);
+    background: linear-gradient(136deg, rgb(96 88 88 / 87%) 33%, rgba(0,0,0,0) 44%);
+}
