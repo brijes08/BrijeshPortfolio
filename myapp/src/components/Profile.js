@@ -140,7 +140,7 @@ const About = ({ onProfileDataChange }) => {
                   className="updateButtonAbout"
                   onClick={!editBtn ? editBtnAbout : null}
                 >
-                  {!editBtn ? 'Edit' : <input type="submit" value="Save" onClick={postData} disabled={editBtn} />}
+                  {!editBtn ? 'Edit' : <input type="submit" value="Save" onClick={postData} disabled={!editBtn} />}
                 </div>
                 <div className="row abt_profile">
                   {/* ... Your existing code for profile information ... */}
