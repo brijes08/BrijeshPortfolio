@@ -29,7 +29,7 @@ const About = ({ onProfileDataChange }) => {
   };
 
   const postData = async (e) => {
-    setEditBtn(false)
+    
     e.preventDefault();
     const { _id, name, email, phone, work } = userData;
 
@@ -56,6 +56,7 @@ const About = ({ onProfileDataChange }) => {
         alert('User Details Update Failed');
       } else {
         alert('User Details Updated Successfully');
+        setEditBtn(false)
         forAboutData()
 
       }
@@ -139,7 +140,7 @@ const About = ({ onProfileDataChange }) => {
                   className="updateButtonAbout"
                   onClick={!editBtn ? editBtnAbout : null}
                 >
-                  {!editBtn ? 'Edit' : <input type="submit" value="Save" onClick={postData} />}
+                  {!editBtn ? 'Edit' : <input type="submit" value="Save" onClick={postData} disabled={editBtn} />}
                 </div>
                 <div className="row abt_profile">
                   {/* ... Your existing code for profile information ... */}
