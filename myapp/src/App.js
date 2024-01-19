@@ -24,12 +24,15 @@ const App = () => {
   // };
 
   const forAboutData = async () => {
+    const authToken = localStorage.getItem('jwtoken');
+
     try {
       const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
         method: 'GET',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
+          Authorization: authToken,
         },
         credentials: 'include',
       });
