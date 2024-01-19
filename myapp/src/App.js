@@ -39,6 +39,7 @@ const App = () => {
 
       const data = await res.json();
       setProfileData(data)
+      console.log(data, "app.js")
       if (!res.ok) {
         throw new Error(data.error);
       }
