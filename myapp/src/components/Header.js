@@ -8,6 +8,7 @@ const Header = ({profileData }) => {
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate()
+  console.log(userData)
   
   const logOutData = () => {
     setToggleStatus(false)
