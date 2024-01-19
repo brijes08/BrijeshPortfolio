@@ -77,7 +77,7 @@ const Header = ({profileData }) => {
       setShow(true)
     }
     // eslint-disable-next-line
-  }, [localStorage])
+  }, [localStorage, profileData])
 
   return (
     <>
