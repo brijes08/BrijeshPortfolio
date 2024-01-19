@@ -1,5 +1,5 @@
 import './App.css'
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Header from "./components/Header"
 import Main from "./components/Main"
@@ -17,15 +17,42 @@ import ErrorPage from "./components/ErrorPage"
 import Footer from "./components/Footer"
 
 const App = () => {
-  const [profileData, setProfileData] = useState('');
+  const [profilData, setProfileData] = useState();
 
-  const handleProfileDataChange = (dataFromProfile) => { 
-    setProfileData(dataFromProfile);
+  // const handleProfileDataChange = (dataFromProfile) => { 
+  //   setProfileData(dataFromProfile);
+  // };
+
+  const forAboutData = async () => {
+    try {
+      const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
+
+      const data = await res.json();
+      setProfileData(data)
+      if (!res.ok) {
+        throw new Error(data.error);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
+
+  useEffect(() => {
+    forAboutData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
 
   return (
     <>
-     <Header profileData={profileData} />
+     <Header profileData={profilData} />
      <Routes>
       <Route exact="true" path='/' element={<Main />} />
       <Route exact="true" path='/about' element={<About />} />
@@ -33,14 +60,14 @@ const App = () => {
       <Route exact="true" path='/skills' element={<Skills />} />
       <Route exact="true" path='/myprojects' element={<MyProjects />} />
       {/* <Route exact="true" path='/contact' element={<Contact />} /> */}
-      <Route exact="true" path='/profile' element={<Profile onProfileDataChange={handleProfileDataChange}  />} />
+      <Route exact="true" path='/profile' element={<Profile />} />
       <Route exact="true" path='/login' element={<Login />} />
       <Route exact="true" path='/signup' element={<Signup />} />
       {/* <Route exact="true" path='/logout' element={<Logout />} /> */}
       <Route exact="true" path='/thankyou' element={<ThankYou />} />
       <Route path='*' element={<ErrorPage />} />
      </Routes>
-     <Footer profileData={profileData} />
+     <Footer profileData={profilData} />
     </>
   )
 }
