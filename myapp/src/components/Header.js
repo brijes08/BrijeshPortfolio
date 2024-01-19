@@ -5,7 +5,7 @@ import image from "../images/user.png"
 const Header = ({profileData }) => {
 
   const [toggleStatus, setToggleStatus] = useState(false);
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate()
   
@@ -30,7 +30,7 @@ const Header = ({profileData }) => {
     }).catch((err) => {
       console.log(err)
     }).finally(() => {
-      setShow(false);
+      // setShow(false);
     });
   }
   function deleteCookie(name) {
@@ -51,7 +51,7 @@ const Header = ({profileData }) => {
     }).then((res) => {
       if (res.status === 200) {
         localStorage.removeItem("jwtoken");
-        setShow(false)
+        // setShow(false)
         navigate("/signup");
       } else {
         throw new Error(res.error);
@@ -74,7 +74,7 @@ const Header = ({profileData }) => {
   useEffect(() => {
     setUserData(profileData)
     if(localStorage.getItem('jwtoken')){
-      setShow(true)
+      // setShow(true)
     }
     // eslint-disable-next-line
   }, [localStorage, profileData])
@@ -93,7 +93,7 @@ const Header = ({profileData }) => {
             <li><NavLink exact="true" to="/myprojects" className="menu-btn">My Projects</NavLink></li>
             <li><a href="#contact" className="menu-btn">Contact</a></li>
             <li className='profileToggle'>
-              <div className="profileBtn" onClick={toggleProfile}><img src={!show ? image : userData.images} alt="Profile" /></div>
+              <div className="profileBtn" onClick={toggleProfile}><img src={!userData.images ? image : userData.images} alt="" /></div>
               {!toggleStatus ? "" : (<div className='toggleBox'>
                 {localStorage.getItem("jwtoken") ?
                   <>
