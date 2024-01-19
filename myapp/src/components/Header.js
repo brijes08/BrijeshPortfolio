@@ -73,7 +73,6 @@ const Header = ({profileData }) => {
 
   useEffect(() => {
     setUserData(profileData)
-    console.log(profileData, "headerget")
     if(localStorage.getItem('jwtoken')){
       setShow(true)
     }
