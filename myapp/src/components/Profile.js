@@ -3,7 +3,7 @@ import pageBanner from '../images/page-banner.jpg';
 import image from '../images/user.png';
 import { useNavigate } from 'react-router-dom';
 
-const About = ({ onProfileDataChange }) => {
+const About = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [studentImage, setStudentImage] = useState(null);
@@ -93,7 +93,6 @@ const About = ({ onProfileDataChange }) => {
       const data = await res.json();
       setUserData(data);
       setShow(true);
-      onProfileDataChange(data)
       // setTimeout(setFile(), setStudentImage(null),console.log('Empty'), 5000);
       setFile()
       setStudentImage(null)
