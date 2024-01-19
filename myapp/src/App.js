@@ -17,8 +17,8 @@ import ErrorPage from "./components/ErrorPage"
 import Footer from "./components/Footer"
 
 const App = () => {
-  const [profilData, setProfileData] = useState();
-
+  const [profilData, setProfileData] = useState({});
+console.log(profilData,"hgyuhh")
   // const handleProfileDataChange = (dataFromProfile) => { 
   //   setProfileData(dataFromProfile);
   // };
@@ -39,7 +39,6 @@ const App = () => {
 
       const data = await res.json();
       setProfileData(data)
-      console.log(data, "app.js")
       if (!res.ok) {
         throw new Error(data.error);
       }
