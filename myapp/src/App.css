@@ -2420,5 +2420,5 @@ ul.menu.headerProfile {
     width: 150px;
     height: 150px;
     position: absolute;
-    background: linear-gradient(136deg,rgb(255 255 255 / 63%) 33%,transparent 44%);
+    background: linear-gradient(136deg, rgb(96 88 88 / 87%) 33%, rgba(0,0,0,0) 44%);
 }
