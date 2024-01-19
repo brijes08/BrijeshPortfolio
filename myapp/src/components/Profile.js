@@ -145,10 +145,10 @@ const About = ({ onProfileDataChange }) => {
                   {/* ... Your existing code for profile information ... */}
                   <div className="col-md-4" style={{ padding: '0' }}>
                     <div className="prfl_img">
-                      <div className="editImgBtn_shadow">
-                        {!editBtn ? (
-                          ''
-                        ) : (
+                      {!editBtn ? (
+                        ''
+                      ) : (
+                        <div className="editImgBtn_shadow">
                           <div className="editImgBtn">
                             <label>
                               <input
@@ -161,8 +161,8 @@ const About = ({ onProfileDataChange }) => {
                               <i className="fas fa-edit"></i>
                             </label>
                           </div>
-                        )}
-                      </div>
+                        </div>
+                      )}
                       <img src={!show ? image : !studentImage ? userData.images : file} alt="UserImage" />
                     </div>
                   </div>
