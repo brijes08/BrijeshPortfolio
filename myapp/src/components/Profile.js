@@ -3,7 +3,7 @@ import pageBanner from '../images/page-banner.jpg';
 import image from '../images/user.png';
 import { useNavigate } from 'react-router-dom';
 
-const About = ({onProfileDataChange }) => {
+const About = ({ onProfileDataChange }) => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [studentImage, setStudentImage] = useState(null);
@@ -57,7 +57,7 @@ const About = ({onProfileDataChange }) => {
       } else {
         alert('User Details Updated Successfully');
         forAboutData()
-      
+
       }
     } catch (error) {
       console.error('Error updating user:', error);
@@ -145,23 +145,24 @@ const About = ({onProfileDataChange }) => {
                   {/* ... Your existing code for profile information ... */}
                   <div className="col-md-4" style={{ padding: '0' }}>
                     <div className="prfl_img">
-                      {!editBtn ? (
-                        ''
-                      ) : (
-                        <div className="editImgBtn">
-                          <label>
-                            <input
-                              type="file"
-                              accept=".png, .jpg, .jpeg, .gif"
-                              name="image"
-                              onChange={handleFileInput}
-                              required
-                            />
-                            <i className="fas fa-edit"></i>
-                          </label>
-                        </div>
-                      )}
-                       
+                      <div className="editImgBtn_shadow">
+                        {!editBtn ? (
+                          ''
+                        ) : (
+                          <div className="editImgBtn">
+                            <label>
+                              <input
+                                type="file"
+                                accept=".png, .jpg, .jpeg, .gif"
+                                name="image"
+                                onChange={handleFileInput}
+                                required
+                              />
+                              <i className="fas fa-edit"></i>
+                            </label>
+                          </div>
+                        )}
+                      </div>
                       <img src={!show ? image : !studentImage ? userData.images : file} alt="UserImage" />
                     </div>
                   </div>
@@ -182,28 +183,28 @@ const About = ({onProfileDataChange }) => {
                       <a href="https://github.com/brijes08" target="_blank" rel="noopener noreferrer"><i className="fab fa-github" aria-hidden="true"></i> Github</a>
                     </li>
                   </ul> */}
-               
-                <div className='col-md-8'>
-                  <div className='prfl_cont' >
-                    <h2>Hello {!show ? "User Name" : userData.name}</h2>
-                    <span>I'm Happy to Hear That You are {!show ? "User Designation" : userData.work}</span>
-                    <p>Welcome to my world! I've glad you have decided to join me.</p>
-                    <p>I want to make your onboarding experience free of worry. Feel free to send me an email if you have any questions at any point in time. I also recommend checking out these resources to get you off the ground.</p>
-                  </div>
-                  <div className='pfl_dtls'>
-                    <div className="forDetailsBrdr">
-                      <h3 className="frUpdtFromBtnAbout">Your Details Are </h3>
-                      <ul>
-                        <li><p>Your User ID is</p><b>{!show ? "User ID" : userData._id}</b></li>
-                        <li className='nameAbout'><p>Name</p><b>{!editBtn ? !show ? "User Name" : userData.name : <input type="text" name="name" value={userData.name} onChange={handleInput} required />}</b></li>
-                        <li className='nameAbout'><p>Designation</p><b>{!editBtn ? !show ? "User Designation" : userData.work : <input type="text" name="work" value={userData.work} onChange={handleInput} required />}</b></li>
-                        <li className='emailAbout'><p>Email</p><b>{!editBtn ? !show ? "User Email" : userData.email : <input type="email" name="email" value={userData.email} onChange={handleInput} required />}</b></li>
-                        <li><p>Phone</p><b>{!editBtn ? !show ? "User Mobile Number" : userData.phone : <input type="tel" name="phone" value={userData.phone} onChange={handleInput} pattern="[1-9]{1}[0-9]{9}" minLength="10" maxLength="10" required />}</b></li>
-                        {/* {!editBtn ? "" : <li><div></div><input type="submit" value="Update" /></li>} */}
-                      </ul>
+
+                  <div className='col-md-8'>
+                    <div className='prfl_cont' >
+                      <h2>Hello {!show ? "User Name" : userData.name}</h2>
+                      <span>I'm Happy to Hear That You are {!show ? "User Designation" : userData.work}</span>
+                      <p>Welcome to my world! I've glad you have decided to join me.</p>
+                      <p>I want to make your onboarding experience free of worry. Feel free to send me an email if you have any questions at any point in time. I also recommend checking out these resources to get you off the ground.</p>
+                    </div>
+                    <div className='pfl_dtls'>
+                      <div className="forDetailsBrdr">
+                        <h3 className="frUpdtFromBtnAbout">Your Details Are </h3>
+                        <ul>
+                          <li><p>Your User ID is</p><b>{!show ? "User ID" : userData._id}</b></li>
+                          <li className='nameAbout'><p>Name</p><b>{!editBtn ? !show ? "User Name" : userData.name : <input type="text" name="name" value={userData.name} onChange={handleInput} required />}</b></li>
+                          <li className='nameAbout'><p>Designation</p><b>{!editBtn ? !show ? "User Designation" : userData.work : <input type="text" name="work" value={userData.work} onChange={handleInput} required />}</b></li>
+                          <li className='emailAbout'><p>Email</p><b>{!editBtn ? !show ? "User Email" : userData.email : <input type="email" name="email" value={userData.email} onChange={handleInput} required />}</b></li>
+                          <li><p>Phone</p><b>{!editBtn ? !show ? "User Mobile Number" : userData.phone : <input type="tel" name="phone" value={userData.phone} onChange={handleInput} pattern="[1-9]{1}[0-9]{9}" minLength="10" maxLength="10" required />}</b></li>
+                          {/* {!editBtn ? "" : <li><div></div><input type="submit" value="Update" /></li>} */}
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
                 </div>
               </form>
             </div>
