@@ -84,7 +84,7 @@ const Header = () => {
       setShow(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [userData]);
 
   return (
     <>
