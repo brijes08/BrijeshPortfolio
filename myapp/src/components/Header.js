@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import image from "../images/user.png"
 
-const Header = ({profileData }) => {
+const Header = () => {
 
   const [toggleStatus, setToggleStatus] = useState(false);
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate()
-  const userAllData = localStorage.getItem('userData');
+  const userAllData = JSON.parse(localStorage.getItem('userData'));
+  setUserData(userAllData)
   console.log(userAllData, 'userAllData')
   const logOutData = () => {
     setToggleStatus(false)
@@ -74,12 +75,11 @@ const Header = ({profileData }) => {
   }
 
   useEffect(() => {
-    setUserData(profileData)
     if(localStorage.getItem('jwtoken')){
       setShow(true)
     }
     // eslint-disable-next-line
-  }, [localStorage, profileData])
+  }, [localStorage])
 
   return (
     <>
