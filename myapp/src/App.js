@@ -1,5 +1,5 @@
 import './App.css'
-import React,{useState, useEffect} from 'react'
+import React from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Header from "./components/Header"
 import Main from "./components/Main"
@@ -17,41 +17,41 @@ import ErrorPage from "./components/ErrorPage"
 import Footer from "./components/Footer"
 
 const App = () => {
-  const [profilData, setProfileData] = useState({});
+  // const [profilData, setProfileData] = useState({});
 
-  const forAboutData = async () => {
-    const authToken = localStorage.getItem('jwtoken');
+  // const forAboutData = async () => {
+  //   const authToken = localStorage.getItem('jwtoken');
 
-    try {
-      const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          Authorization: authToken,
-        },
-        credentials: 'include',
-      });
+  //   try {
+  //     const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
+  //       method: 'GET',
+  //       headers: {
+  //         Accept: 'application/json',
+  //         'Content-Type': 'application/json',
+  //         Authorization: authToken,
+  //       },
+  //       credentials: 'include',
+  //     });
 
-      const data = await res.json();
-      setProfileData(data)
-      if (!res.ok) {
-        throw new Error(data.error);
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //     const data = await res.json();
+  //     setProfileData(data)
+  //     if (!res.ok) {
+  //       throw new Error(data.error);
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
-  useEffect(() => {
-    forAboutData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   forAboutData();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
 
   return (
     <>
-     <Header profileData={profilData} />
+     <Header/>
      <Routes>
       <Route exact="true" path='/' element={<Main />} />
       <Route exact="true" path='/about' element={<About />} />
@@ -66,7 +66,7 @@ const App = () => {
       <Route exact="true" path='/thankyou' element={<ThankYou />} />
       <Route path='*' element={<ErrorPage />} />
      </Routes>
-     <Footer profileData={profilData} />
+     <Footer />
     </>
   )
 }

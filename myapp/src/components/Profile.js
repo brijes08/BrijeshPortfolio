@@ -92,6 +92,7 @@ const About = () => {
 
       const data = await res.json();
       setUserData(data);
+      localStorage.setItem("names", JSON.stringify(data))
       setShow(true);
       // setTimeout(setFile(), setStudentImage(null),console.log('Empty'), 5000);
       setFile()
