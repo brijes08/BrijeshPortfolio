@@ -76,14 +76,14 @@ const Header = () => {
   }
 
   useEffect(() => {
-  const userAllData = localStorage.getItem('userData');
-  const userDatas = JSON.parse(userAllData);
-  setUserData(userDatas)
+  // const userAllData = localStorage.getItem('userData');
+  // const userDatas = JSON.parse(userAllData);
+  // setUserData(userDatas)
     if(localStorage.getItem('jwtoken')){
       setShow(true)
     }
     // eslint-disable-next-line
-  }, [])
+  }, [localStorage])
 
   return (
     <>
