@@ -78,6 +78,7 @@ const Header = () => {
   useEffect(() => {
   const userAllData = localStorage.getItem('userData');
   const userDatas = JSON.parse(userAllData);
+  console.log(userDatas, "qwertyuiop")
   setUserData(userDatas)
     if(localStorage.getItem('jwtoken')){
       setShow(true)
