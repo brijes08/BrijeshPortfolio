@@ -72,12 +72,11 @@ const Header = () => {
   }
 
   useEffect(() => {
-    // const userAllData = localStorage.getItem('userData');
-    // const userDatas = JSON.parse(userAllData);
-    // console.log(userDatas, "headerUseFffect")
-    setUserData(JSON.parse(localStorage.getItem('userData')))
-    if (localStorage.getItem('jwtoken')) {
-      setShow(true)
+    const storedUserData = JSON.parse(localStorage.getItem('userData'));
+    setUserData(storedUserData);
+
+    if (storedUserData && storedUserData.images) {
+      setShow(true);
     }
     // eslint-disable-next-line
   }, [localStorage])
