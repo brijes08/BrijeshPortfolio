@@ -6,7 +6,7 @@ const Header = () => {
 
   const [toggleStatus, setToggleStatus] = useState(false);
   const [show, setShow] = useState(false);
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')));
   const navigate = useNavigate()
   const logOutData = () => {
     setToggleStatus(false)
@@ -72,10 +72,10 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const userAllData = localStorage.getItem('userData');
-    const userDatas = JSON.parse(userAllData);
-    console.log(userDatas, "headerUseFffect")
-    setUserData(userDatas)
+    // const userAllData = localStorage.getItem('userData');
+    // const userDatas = JSON.parse(userAllData);
+    // console.log(userDatas, "headerUseFffect")
+    setUserData(JSON.parse(localStorage.getItem('userData')))
     if (localStorage.getItem('jwtoken')) {
       setShow(true)
     }
@@ -96,7 +96,8 @@ const Header = () => {
             <li><NavLink exact="true" to="/myprojects" className="menu-btn">My Projects</NavLink></li>
             <li><a href="#contact" className="menu-btn">Contact</a></li>
             <li className='profileToggle'>
-              <div className="profileBtn" onClick={toggleProfile}><img src={!show ? image : userData.images} alt="" /></div>
+              {/* <div className="profileBtn" onClick={toggleProfile}><img src={!show ? image : userData.images} alt="" /></div> */}
+              <div className="profileBtn" onClick={toggleProfile}><img src={userData.images} alt="" /></div>
               {!toggleStatus ? "" : (<div className='toggleBox'>
                 {localStorage.getItem("jwtoken") ?
                   <>
