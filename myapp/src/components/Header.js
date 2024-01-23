@@ -6,11 +6,9 @@ const Header = () => {
 
   const [toggleStatus, setToggleStatus] = useState(false);
   const [show, setShow] = useState(false);
-  const [userData, setUserData] = useState(null);
+  const userData = JSON.parse(localStorage.getItem('userData'))
   const navigate = useNavigate()
-  const userAllData = JSON.parse(localStorage.getItem('userData'));
-  setUserData(userAllData)
-  console.log(userAllData, 'userAllData')
+  // console.log(userAllData, 'userAllData')
   const logOutData = () => {
     setToggleStatus(false)
     fetch("https://portfoliodb-wj77.onrender.com/logout", {

@@ -33,7 +33,7 @@ const Login = () => {
       // Store the token in local storage
       localStorage.setItem('jwtoken', authToken);
 
-      localStorage.setItem("userData", JSON.stringify({name:userData.name,email:userData.email,phone:userData.phone,work:userData.work,images:userData.images }))
+      localStorage.setItem("userData", JSON.stringify({_id:userData._id,name:userData.name,email:userData.email,phone:userData.phone,work:userData.work,images:userData.images }))
       // Set the token in a cookie with an expiration date
       document.cookie = `authToken=${authToken}; path=/; secure; SameSite=Strict`;
       
