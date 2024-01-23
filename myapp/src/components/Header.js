@@ -6,7 +6,10 @@ const Header = () => {
 
   const [toggleStatus, setToggleStatus] = useState(false);
   const [show, setShow] = useState(false);
-  const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')));
+  const [userData, setUserData] = useState(() => {
+    const storedUserData = JSON.parse(localStorage.getItem('userData'));
+    return storedUserData || {};
+  });
   const navigate = useNavigate()
   const logOutData = () => {
     setToggleStatus(false)
@@ -74,14 +77,14 @@ const Header = () => {
   console.log('userData:=', userData)
 
   useEffect(() => {
-    const storedUserData = JSON.parse(localStorage.getItem('userData'));
+    const storedUserData = JSON.parse(localStorage.getItem('userData')) || {};
     setUserData(storedUserData);
 
-    if (storedUserData && storedUserData.images) {
+    if (localStorage.getItem('jwtoken')) {
       setShow(true);
     }
-    // eslint-disable-next-line
-  }, [localStorage])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -98,7 +101,7 @@ const Header = () => {
             <li><a href="#contact" className="menu-btn">Contact</a></li>
             <li className='profileToggle'>
               {/* <div className="profileBtn" onClick={toggleProfile}><img src={!show ? image : userData.images} alt="" /></div> */}
-              <div className="profileBtn" onClick={toggleProfile}><img src={localStorage.getItem('userData') ? userData.images : image} alt="" /></div>
+              <div className="profileBtn" onClick={toggleProfile}><img src={userData.images || image} alt="" /></div>
               {!toggleStatus ? "" : (<div className='toggleBox'>
                 {localStorage.getItem("jwtoken") ?
                   <>
