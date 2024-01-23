@@ -75,7 +75,7 @@ const Header = () => {
   }
 
   useEffect(() => {
-    setUserData(localStorage.getItem(JSON.parse('userData')))
+    setUserData(JSON.parse(localStorage.getItem('userData')))
     if(localStorage.getItem('jwtoken')){
       setShow(true)
     }
