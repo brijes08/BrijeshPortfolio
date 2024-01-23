@@ -70,17 +70,17 @@ const Header = () => {
     if (toggleStatus === true) {
       setToggleStatus(false)
     }
-  } 
+  }
   const toggleFalse = () => {
     setToggleStatus(false)
   }
 
   useEffect(() => {
-  const userAllData = localStorage.getItem('userData');
-  const userDatas = JSON.parse(userAllData);
-  console.log(userDatas, "qwertyuiop")
-  setUserData(userDatas)
-    if(localStorage.getItem('jwtoken')){
+    const userAllData = localStorage.getItem('userData');
+    const userDatas = JSON.parse(userAllData);
+    console.log(userDatas, "headerUseFffect")
+    setUserData(userDatas)
+    if (localStorage.getItem('jwtoken')) {
       setShow(true)
     }
     // eslint-disable-next-line
