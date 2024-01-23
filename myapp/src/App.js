@@ -17,37 +17,6 @@ import ErrorPage from "./components/ErrorPage"
 import Footer from "./components/Footer"
 
 const App = () => {
-  // const [profilData, setProfileData] = useState({});
-
-  // const forAboutData = async () => {
-  //   const authToken = localStorage.getItem('jwtoken');
-
-  //   try {
-  //     const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
-  //       method: 'GET',
-  //       headers: {
-  //         Accept: 'application/json',
-  //         'Content-Type': 'application/json',
-  //         Authorization: authToken,
-  //       },
-  //       credentials: 'include',
-  //     });
-
-  //     const data = await res.json();
-  //     setProfileData(data)
-  //     if (!res.ok) {
-  //       throw new Error(data.error);
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   forAboutData();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
 
   return (
     <>
