@@ -8,10 +8,10 @@ const Header = () => {
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate()
-  // const userAllData = localStorage.getItem('userData');
-  // const userDatas = JSON.parse(userAllData);
-  // setUserData(userDatas)
-  // console.log(userAllData, 'userAllData')
+  const userDatas = JSON.parse(localStorage.getItem('userData'));
+  setUserData(userDatas)
+  console.log(userDatas, "headerdata")
+
   const logOutData = () => {
     setToggleStatus(false)
     fetch("https://portfoliodb-wj77.onrender.com/logout", {
@@ -76,10 +76,10 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const userAllData = localStorage.getItem('userData');
-    const userDatas = JSON.parse(userAllData);
-    console.log(userDatas, "headerUseFffect")
-    setUserData(userDatas)
+    // const userAllData = localStorage.getItem('userData');
+    // const userDatas = JSON.parse(userAllData);
+    // console.log(userDatas, "headerUseFffect")
+    // setUserData(userDatas)
     if (localStorage.getItem('jwtoken')) {
       setShow(true)
     }
