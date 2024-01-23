@@ -22,6 +22,7 @@ const Header = ({profileData }) => {
       // console.log(res, "logotwrvfd")
       if (res.status === 200) {
         localStorage.removeItem("jwtoken");
+        localStorage.removeItem("userData");
         deleteCookie('authToken')
         navigate("/login");
       } else {
