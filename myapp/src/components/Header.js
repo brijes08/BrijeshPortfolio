@@ -83,7 +83,7 @@ const Header = () => {
       setShow(true)
     }
     // eslint-disable-next-line
-  }, [localStorage])
+  }, [])
 
   return (
     <>
