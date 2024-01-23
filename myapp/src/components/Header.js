@@ -8,7 +8,8 @@ const Header = () => {
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate()
-  // const userAllData = JSON.parse(localStorage.getItem('userData'));
+  // const userAllData = localStorage.getItem('userData');
+  // const userDatas = JSON.parse(userAllData);
   // setUserData(userAllData)
   // console.log(userAllData, 'userAllData')
   const logOutData = () => {
@@ -75,7 +76,9 @@ const Header = () => {
   }
 
   useEffect(() => {
-    setUserData(JSON.parse(localStorage.getItem('userData')))
+ 
+    const userAllData = JSON.parse(localStorage.getItem('userData'));
+    setUserData(userAllData)
     if(localStorage.getItem('jwtoken')){
       setShow(true)
     }
