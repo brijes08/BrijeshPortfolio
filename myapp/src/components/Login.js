@@ -29,10 +29,11 @@ const Login = () => {
       alert("Invalid Email and Password!!!")
     } else {
       const authToken = data.token;
-
+      const userData = data.data
       // Store the token in local storage
       localStorage.setItem('jwtoken', authToken);
 
+      localStorage.setItem("userData", JSON.stringify(userData))
       // Set the token in a cookie with an expiration date
       document.cookie = `authToken=${authToken}; path=/; secure; SameSite=Strict`;
       
