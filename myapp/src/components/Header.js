@@ -8,9 +8,6 @@ const Header = () => {
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate()
-  // const userAllData = localStorage.getItem('userData');
-  // const userDatas = JSON.parse(userAllData);
-  // setUserData(userDatas)
   const logOutData = () => {
     setToggleStatus(false)
     fetch("https://portfoliodb-wj77.onrender.com/logout", {
