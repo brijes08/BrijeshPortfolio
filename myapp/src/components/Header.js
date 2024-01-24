@@ -10,11 +10,10 @@ const Header = () => {
   const [toggleStatus, setToggleStatus] = useState(false);
   // eslint-disable-next-line
   const [show, setShow] = useState(false);
-  // eslint-disable-next-line
   // const [userData, setUserData] = useState(null);
   const navigate = useNavigate()
-  const userAllData = localStorage.getItem('userData');
-  console.log(userAllData, 'userAllData')
+  // const userAllData = localStorage.getItem('userData');
+  // console.log(userAllData, 'userAllData')
   const logOutData = () => {
     setToggleStatus(false)
     fetch("https://portfoliodb-wj77.onrender.com/logout", {
