@@ -100,7 +100,7 @@ const Header = () => {
             <li><a href="#contact" className="menu-btn">Contact</a></li>
             <li className='profileToggle'>
               {/* <div className="profileBtn" onClick={toggleProfile}><img src={!show ? image : userData.images} alt="" /></div> */}
-              <div className="profileBtn" onClick={toggleProfile}><img src={user.images || image} alt="" /></div>
+              <div className="profileBtn" onClick={toggleProfile}><img src={user || image} alt="" /></div>
               {!toggleStatus ? "" : (<div className='toggleBox'>
                 {localStorage.getItem("jwtoken") ?
                   <>
