@@ -11,7 +11,7 @@ const Header = () => {
   const [show, setShow] = useState(false);
   // eslint-disable-next-line
   // console.log(userData.images, "userData")
-  console.log(userData.lenght, "lenght")
+  console.log(userData.length, "lenght")
   // const [user, setData] = useState(userData);
   // setData([...user, userData])
   // console.log(user, "contextusing")
