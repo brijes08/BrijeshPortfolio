@@ -1,63 +1,75 @@
 import React, { useState } from 'react'
 import pageBanner from '../images/page-banner.jpg'
-import {NavLink, useNavigate} from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
+import { useUser } from '../UserContext';
 
 const Login = () => {
 
   const navigate = useNavigate()
+  const { setUser } = useUser();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const LoginUser = async (e) => {
     e.preventDefault();
     try {
-    const res = await fetch('https://portfoliodb-wj77.onrender.com/signin', {
-      credentials: 'include',
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ email, password })
-    })//.then(response => response.json())
-    // .then(vals => console.log(vals))
-    // .catch(console.error);
+      const res = await fetch('https://portfoliodb-wj77.onrender.com/signin', {
+        credentials: 'include',
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+      })//.then(response => response.json())
+      // .then(vals => console.log(vals))
+      // .catch(console.error);
 
-    const data = await res.json()
-    console.log(data)
+      const data = await res.json()
+      console.log(data)
 
-    if (res.status === 400 || !data) {
-      alert("Invalid Email and Password!!!")
-    } else {
-      const authToken = data.token;
-      const userData = data.data
-      // Store the token in local storage
-      localStorage.setItem('jwtoken', authToken);
+      if (res.status === 400 || !data) {
+        alert("Invalid Email and Password!!!")
+      } else {
+        const authToken = data.token;
+        const userData = data.data
+        // Store the token in local storage
+        localStorage.setItem('jwtoken', authToken);
 
-      localStorage.setItem("userData", JSON.stringify({_id:userData._id,name:userData.name,email:userData.email,phone:userData.phone,work:userData.work,images:userData.images }))
-      // Set the token in a cookie with an expiration date
-      document.cookie = `authToken=${authToken}; path=/; secure; SameSite=Strict`;
-      
-      function getAuthToken() {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-          const cookie = cookies[i].trim();
-          if (cookie.startsWith('authToken=')) {
-            return cookie.substring('authToken='.length, cookie.length);
+        localStorage.setItem("userData", JSON.stringify({ _id: userData._id, name: userData.name, email: userData.email, phone: userData.phone, work: userData.work, images: userData.images }))
+        setUser({
+          _id: userData._id,
+          name: userData.name,
+          email: userData.email,
+          phone: userData.phone,
+          work: userData.work,
+          images: userData.images,
+        });
+
+        // Set the token in a cookie with an expiration date
+        document.cookie = `authToken=${authToken}; path=/; secure; SameSite=Strict`;
+
+        function getAuthToken() {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.startsWith('authToken=')) {
+              return cookie.substring('authToken='.length, cookie.length);
+            }
           }
+          return null; // Token not found
         }
-        return null; // Token not found
+
+        getAuthToken();
+        alert("Login Successfull")
+        navigate('/profile')
       }
-      
-     getAuthToken();
-      alert("Login Successfull")
-      navigate('/profile')
+    } catch (error) {
+      console.error('Error during login:', error.message);
+      alert('An error occurred during login.');
     }
-  } catch (error) {
-    console.error('Error during login:', error.message);
-    alert('An error occurred during login.');
   }
-  }
- 
+
 
 
   return (<>

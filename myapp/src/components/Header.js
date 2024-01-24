@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import image from "../images/user.png"
+import { useUser } from '../UserContext';
+// import image from "../images/user.png"
 
 const Header = () => {
 
+  const { userData } = useUser();
+  console.log(userData, "contextusing")
   const [toggleStatus, setToggleStatus] = useState(false);
+  // eslint-disable-next-line
   const [show, setShow] = useState(false);
-  const [userData, setUserData] = useState(() => {
-    const storedUserData = JSON.parse(localStorage.getItem('userData'));
-    return storedUserData || {};
-  });
+  // eslint-disable-next-line
+  // const [userData, setUserData] = useState(null);
   const navigate = useNavigate()
+  const userAllData = localStorage.getItem('userData');
+  console.log(userAllData, 'userAllData')
   const logOutData = () => {
     setToggleStatus(false)
     fetch("https://portfoliodb-wj77.onrender.com/logout", {
@@ -69,22 +73,17 @@ const Header = () => {
     if (toggleStatus === true) {
       setToggleStatus(false)
     }
-  }
+  } 
   const toggleFalse = () => {
     setToggleStatus(false)
   }
 
-  console.log('userData:=', userData)
-
   useEffect(() => {
-    const storedUserData = JSON.parse(localStorage.getItem('userData')) || {};
-    setUserData(storedUserData);
-
-    if (localStorage.getItem('jwtoken')) {
-      setShow(true);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [localStorage]);
+    // if(localStorage.getItem('jwtoken')){
+    //   setShow(true)
+    // }
+    // eslint-disable-next-line
+  }, [localStorage])
 
   return (
     <>
@@ -101,7 +100,7 @@ const Header = () => {
             <li><a href="#contact" className="menu-btn">Contact</a></li>
             <li className='profileToggle'>
               {/* <div className="profileBtn" onClick={toggleProfile}><img src={!show ? image : userData.images} alt="" /></div> */}
-              <div className="profileBtn" onClick={toggleProfile}><img src={userData.images || image} alt="" /></div>
+              <div className="profileBtn" onClick={toggleProfile}><img src={userData.images} alt="" /></div>
               {!toggleStatus ? "" : (<div className='toggleBox'>
                 {localStorage.getItem("jwtoken") ?
                   <>
