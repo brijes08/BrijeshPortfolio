@@ -11,8 +11,8 @@ const Header = () => {
   const [show, setShow] = useState(false);
   // eslint-disable-next-line
   console.log(userData, "userData")
-  const [user, setData] = useState();
-  setData([...user, userData])
+  const [user, setData] = useState(userData);
+  // setData([...user, userData])
   console.log(user, "contextusing")
   const navigate = useNavigate()
   
