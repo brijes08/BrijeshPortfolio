@@ -6,12 +6,12 @@ import { useUser } from '../UserContext';
 const Header = () => {
 
   const { userData } = useUser();
-  console.log(userData, "contextusing")
   const [toggleStatus, setToggleStatus] = useState(false);
   // eslint-disable-next-line
   const [show, setShow] = useState(false);
   // eslint-disable-next-line
   const [user, setData] = useState(userData || {});
+  console.log(user, "contextusing")
   const navigate = useNavigate()
   
   const logOutData = () => {
