@@ -13,7 +13,7 @@ const Header = () => {
   const [user, setData] = useState({
     images:""
   });
-  setData(userData)
+  setData(userData.images)
   console.log(user, "contextusing")
   const navigate = useNavigate()
   
