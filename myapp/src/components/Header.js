@@ -11,6 +11,7 @@ const Header = () => {
   const [show, setShow] = useState(false);
   // eslint-disable-next-line
   console.log(userData.images, "userData")
+  console.log(userData.lenght, "lenght")
   // const [user, setData] = useState(userData);
   // setData([...user, userData])
   // console.log(user, "contextusing")
@@ -101,7 +102,7 @@ const Header = () => {
             <li><a href="#contact" className="menu-btn">Contact</a></li>
             <li className='profileToggle'>
               {/* <div className="profileBtn" onClick={toggleProfile}><img src={!show ? image : userData.images} alt="" /></div> */}
-              <div className="profileBtn" onClick={toggleProfile}><img src={userData.images || myImages} alt="" /></div>
+              <div className="profileBtn" onClick={toggleProfile}><img src={myImages} alt="" /></div>
               {!toggleStatus ? "" : (<div className='toggleBox'>
                 {localStorage.getItem("jwtoken") ?
                   <>
