@@ -10,7 +10,7 @@ const Header = () => {
   // eslint-disable-next-line
   const [show, setShow] = useState(false);
   // eslint-disable-next-line
-  console.log(userData.images, "userData")
+  // console.log(userData.images, "userData")
   console.log(userData.lenght, "lenght")
   // const [user, setData] = useState(userData);
   // setData([...user, userData])
