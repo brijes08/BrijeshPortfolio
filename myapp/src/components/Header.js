@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useUser } from '../UserContext';
-import myImages from "../images/user.png"
+import dummyImg from "../images/user.png"
 
 const Header = () => {
 
   const { userData } = useUser();
   const [toggleStatus, setToggleStatus] = useState(false);
+  const [user, setUser] = useState();
   // eslint-disable-next-line
   const [show, setShow] = useState(false);
-  // eslint-disable-next-line
-  // console.log(userData.images, "userData")
-  console.log(userData, "lenght")
-  // const [user, setData] = useState(userData);
-  // setData([...user, userData])
-  // console.log(user, "contextusing")
+  console.log(userData, "userData")
+  console.log(user, "UserDataaaaaaa")
   const navigate = useNavigate()
-  
+
   const logOutData = () => {
     setToggleStatus(false)
     fetch("https://portfoliodb-wj77.onrender.com/logout", {
@@ -75,7 +72,7 @@ const Header = () => {
     if (toggleStatus === true) {
       setToggleStatus(false)
     }
-  } 
+  }
   const toggleFalse = () => {
     setToggleStatus(false)
   }
@@ -85,7 +82,18 @@ const Header = () => {
     //   setShow(true)
     // }
     // eslint-disable-next-line
-  }, [localStorage])
+    const token = localStorage.getItem('jwtoken');
+    if (token) {
+      setShow(true);  // You can uncomment this line if you want to show the profile initially
+
+      const savedUserData = localStorage.getItem('userData');
+      if (savedUserData) {
+        const parsedUserData = JSON.parse(savedUserData);
+        setUser(parsedUserData)
+      }
+    }
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <>
@@ -102,7 +110,7 @@ const Header = () => {
             <li><a href="#contact" className="menu-btn">Contact</a></li>
             <li className='profileToggle'>
               {/* <div className="profileBtn" onClick={toggleProfile}><img src={!show ? image : userData.images} alt="" /></div> */}
-              <div className="profileBtn" onClick={toggleProfile}><img src={myImages} alt="" /></div>
+              <div className="profileBtn" onClick={toggleProfile}><img src={dummyImg} alt="" /></div>
               {!toggleStatus ? "" : (<div className='toggleBox'>
                 {localStorage.getItem("jwtoken") ?
                   <>
