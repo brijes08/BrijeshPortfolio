@@ -7,13 +7,14 @@ const Header = () => {
 
   const { userData } = useUser();
   const [toggleStatus, setToggleStatus] = useState(false);
-  const [user, setUser] = useState();
   // eslint-disable-next-line
   const [show, setShow] = useState(false);
-  console.log(userData, "userData")
-  console.log(user, "UserDataaaaaaa")
+  console.log(userData, "lenght")
+  // const [user, setData] = useState(userData);
+  // setData([...user, userData])
+  // console.log(user, "contextusing")
   const navigate = useNavigate()
-
+  
   const logOutData = () => {
     setToggleStatus(false)
     fetch("https://portfoliodb-wj77.onrender.com/logout", {
@@ -72,7 +73,7 @@ const Header = () => {
     if (toggleStatus === true) {
       setToggleStatus(false)
     }
-  }
+  } 
   const toggleFalse = () => {
     setToggleStatus(false)
   }
@@ -82,18 +83,7 @@ const Header = () => {
     //   setShow(true)
     // }
     // eslint-disable-next-line
-    const token = localStorage.getItem('jwtoken');
-    if (token) {
-      setShow(true);  // You can uncomment this line if you want to show the profile initially
-
-      const savedUserData = localStorage.getItem('userData');
-      if (savedUserData) {
-        const parsedUserData = JSON.parse(savedUserData);
-        setUser(parsedUserData)
-      }
-    }
-    // eslint-disable-next-line
-  }, [])
+  }, [localStorage])
 
   return (
     <>
