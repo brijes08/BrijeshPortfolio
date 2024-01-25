@@ -24,8 +24,8 @@ const Footer = ({ profileData }) => {
     e.preventDefault()
 
     const { name, email, phone, subject, message } = userData;
-
-    const res = await fetch('https://portfoliodb-wj77.onrender.com/contact', {
+if (authToken) {
+  const res = await fetch('https://portfoliodb-wj77.onrender.com/contact', {
       credentials: 'include',
       method: 'POST',
       headers: {
@@ -41,6 +41,24 @@ const Footer = ({ profileData }) => {
       setUserData({ ...userData, subject: "", message: "" })
       navigate('/thankyou')
     }
+} else {
+  const res = await fetch('https://portfoliodb-wj77.onrender.com/contact-msg', {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, phone, subject, message })
+    })
+    const data = await res.json()
+    if (!data) {
+      alert("Message Not Send")
+    } else {
+      setUserData({ name: "", email: "", phone: "", subject: "", message: "" })
+      navigate('/thankyou')
+    }
+}
+    
   }
 
   return (<>
