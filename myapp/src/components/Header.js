@@ -112,6 +112,13 @@ const Header = () => {
     const localData = localStorage.getItem('jwtoken');
     if (localData) {
       forAboutData();
+    } else {
+      setTimeout(() => {
+        const localData = localStorage.getItem('jwtoken');
+        if (localData) {
+          forAboutData();
+        }
+      }, 1000)
     }
   }, []);
 
