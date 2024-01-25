@@ -7,7 +7,10 @@ const About = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [studentImage, setStudentImage] = useState(null);
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState({
+    name:"",
+    work:""
+  });
   const [file, setFile] = useState();
   const [userData, setUserData] = useState({
     _id: '',
@@ -93,7 +96,7 @@ const About = () => {
 
       const data = await res.json();
       setUserData(data);
-      setUserName(data.name)
+      setUserName({name:data.name, work:data.work})
       setShow(true);
       setFile()
       setStudentImage(null)
@@ -186,8 +189,8 @@ const About = () => {
 
                   <div className='col-md-8'>
                     <div className='prfl_cont' >
-                      <h2>Hello {!show ? "User Name" : userName}</h2>
-                      <span>I'm Happy to Hear That You are {!show ? "User Designation" : userData.work}</span>
+                      <h2>Hello {!show ? "User Name" : userName.name}</h2>
+                      <span>I'm Happy to Hear That You are {!show ? "User Designation" : userName.work}</span>
                       <p>Welcome to my world! I've glad you have decided to join me.</p>
                       <p>I want to make your onboarding experience free of worry. Feel free to send me an email if you have any questions at any point in time. I also recommend checking out these resources to get you off the ground.</p>
                     </div>
