@@ -89,7 +89,7 @@ const Header = () => {
 
       const data = await res.json();
       setShow(true)
-      console.log(data, "qwer")
+      // console.log(data, "qwer")
       setUserData(data)
       if (!res.ok) {
         throw new Error(data.error);
@@ -99,28 +99,15 @@ const Header = () => {
     }
   };
 
-  // var localData = localStorage.getItem('jwtoken');
+  var localData = localStorage.getItem('jwtoken');
 
-  // if (localData) {
-  //   forAboutData();
-  // }
+  if (localData) {
+    forAboutData();
+  }
 
-  // useEffect(() => {
-  //   // eslint-disable-next-line
-  // }, [localStorage])
   useEffect(() => {
-    const localData = localStorage.getItem('jwtoken');
-    if (localData) {
-      forAboutData();
-    } else {
-      setTimeout(() => {
-        const localData = localStorage.getItem('jwtoken');
-        if (localData) {
-          forAboutData();
-        }
-      }, 1000)
-    }
-  }, []);
+    // eslint-disable-next-line
+  }, [localStorage])
 
   return (
     <>
