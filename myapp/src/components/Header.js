@@ -78,6 +78,39 @@ const Header = () => {
     setToggleStatus(false)
   }
 
+  const forAboutData = async () => {
+    const authToken = localStorage.getItem('jwtoken');
+
+    try {
+      const res = await fetch('https://portfoliodb-wj77.onrender.com/about', {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: authToken,
+        },
+        credentials: 'include',
+      });
+
+      const data = await res.json();
+     console.log(data)
+      if (!res.ok) {
+        throw new Error(data.error);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  var localData = localStorage.getItem('jwtoken');
+
+  if (localData) {
+    forAboutData();
+  }
+
+
+
+
   useEffect(() => {
     // if(localStorage.getItem('jwtoken')){
     //   setShow(true)
