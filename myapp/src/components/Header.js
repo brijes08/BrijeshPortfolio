@@ -99,15 +99,21 @@ const Header = () => {
     }
   };
 
-  var localData = localStorage.getItem('jwtoken');
+  // var localData = localStorage.getItem('jwtoken');
 
-  if (localData) {
-    forAboutData();
-  }
+  // if (localData) {
+  //   forAboutData();
+  // }
 
+  // useEffect(() => {
+  //   // eslint-disable-next-line
+  // }, [localStorage])
   useEffect(() => {
-    // eslint-disable-next-line
-  }, [localStorage])
+    const localData = localStorage.getItem('jwtoken');
+    if (localData) {
+      forAboutData();
+    }
+  }, []);
 
   return (
     <>
