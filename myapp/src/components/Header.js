@@ -89,7 +89,7 @@ const Header = () => {
 
       const data = await res.json();
       setShow(true)
-      console.log(data, "qwer")
+      // console.log(data, "qwer")
       setUserData(data)
       if (!res.ok) {
         throw new Error(data.error);
