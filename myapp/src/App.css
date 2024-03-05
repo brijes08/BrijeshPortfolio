@@ -919,7 +919,9 @@ footer span a:hover {
         display: block;
         z-index: 999;
     }
-
+    ul.menu.headerProfile {
+        flex-direction: column;
+    }
     .menu-btn i.active:before {
         content: "\f00d";
     }
