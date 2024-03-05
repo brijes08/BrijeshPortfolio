@@ -2259,6 +2259,36 @@ nav.navbar.sticky .profileBtn {
     .cursor-2 {
         display: none;
     }
+
+
+
+    
+
+
+
+
+
+    ul.menu.headerProfile {
+        flex-direction: column;
+    }
+
+    .profileBtn {
+        margin-left: 0;
+    }
+
+    .navbar .menu li.profileToggle {
+        display        : flex;
+        justify-content: center;
+    }
+
+    .navbar .menu li.profileToggle a {
+        margin: 0px 0;
+    }
+
+    .toggleBox {
+        margin-top: 50px;
+        width     : auto;
+    }
 }
 
 @media (max-width: 947px) {
@@ -2342,27 +2372,8 @@ nav.navbar.sticky .profileBtn {
 
 
 
-
-    ul.menu.headerProfile {
-        flex-direction: column;
-    }
-
-    .profileBtn {
-        margin-left: 0;
-    }
-
-    .navbar .menu li.profileToggle {
-        display        : flex;
-        justify-content: center;
-    }
-
-    .navbar .menu li.profileToggle a {
-        margin: 0px 0;
-    }
-
-    .toggleBox {
-        margin-top: 50px;
-        width     : auto;
+    .menu-breadcrump h1 {
+        font-size: 45px;
     }
 }
 
