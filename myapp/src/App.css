@@ -2493,4 +2493,7 @@ nav.navbar.sticky .profileBtn {
     .projectPage .card {
         width: 100%;
     }
+    .projects .carousel .card .text {
+        font-size: 16px;
+    }
 }
