@@ -961,7 +961,7 @@ footer span a:hover {
 }
 
 .bg-breadcrump img {
-    width: 100%;
+    width : 100%;
     height: 100%;
 }
 
@@ -1877,10 +1877,10 @@ a.haveAcc {
 }
 
 .prfl_img img {
-    width        : 100%;
-    border-radius: 5px;
-    height       : 100%;
-    object-fit   : cover;
+    width           : 100%;
+    border-radius   : 5px;
+    height          : 100%;
+    object-fit      : cover;
     background-color: #fff;
 }
 
@@ -1941,9 +1941,9 @@ a.haveAcc {
 }
 
 .pfl_dtls ul li p {
-    padding: 15.6px 0px;
+    padding    : 15.6px 0px;
     line-height: 0px;
-    color: #555555;
+    color      : #555555;
     font-weight: 700;
 }
 
@@ -1952,15 +1952,15 @@ a.haveAcc {
 }
 
 .pfl_dtls ul li:last-child {
-    border        : none;
-    margin-bottom : 0;
+    border           : none;
+    margin-bottom    : 0;
     /* padding-bottom: 0; */
 }
 
 .pfl_dtls ul li {
     display        : flex;
     justify-content: space-between;
-    align-items: center;
+    align-items    : center;
     width          : 100%;
     margin-bottom  : 10px;
     border-bottom  : 1px solid #ddd;
@@ -2066,7 +2066,7 @@ img.serviceReactIconHover {
 
 .services .serv-content .card:hover img.serviceReactIconHover {
     display: block !important;
-    width: 100%;
+    width  : 100%;
 }
 
 
@@ -2078,9 +2078,10 @@ img.serviceReactIconHover {
 
 
 h3.frUpdtFromBtnAbout {
-    display: flex;
+    display        : flex;
     justify-content: space-between;
 }
+
 /* form.updateFormAbout input[type="submit"] {
     margin-top: 0px;
     color: #fff;
@@ -2089,80 +2090,90 @@ h3.frUpdtFromBtnAbout {
     letter-spacing: 1px;
 } */
 form.updateFormAbout input {
-    padding: 6px 10px;
-    border-color: #3ebeb3;
+    padding      : 6px 10px;
+    border-color : #3ebeb3;
     border-radius: 5px;
-    font-weight: bold;
+    font-weight  : bold;
 }
+
 /* form.updateFormAbout ul li:last-child {
     justify-content: end;
 } */
 form.updateFormAbout .updateButtonAbout {
     position: absolute;
-    right: -20px;
-    top: -20px;
-    z-index: 1;
-    
-    width: 55px;
-    height: 55px;
-    font-weight: bold;
-    background: #3ebeb3;
-    font-size: 15px;
-    border-radius: 50px;
-    color: #fff;
-    display: flex;
-    align-items: center;
+    right   : -20px;
+    top     : -20px;
+    z-index : 1;
+
+    width          : 55px;
+    height         : 55px;
+    font-weight    : bold;
+    background     : #3ebeb3;
+    font-size      : 15px;
+    border-radius  : 50px;
+    color          : #fff;
+    display        : flex;
+    align-items    : center;
     justify-content: center;
-    border: none;
-    padding: 0;
-    margin-top: 0px;
-    text-align: center;
-    letter-spacing: normal !important;
+    border         : none;
+    padding        : 0;
+    margin-top     : 0px;
+    text-align     : center;
+    letter-spacing : normal !important;
 }
+
 form.updateFormAbout .updateButtonAbout input {
-    width: 55px;
-    height: 55px;
-    font-weight: bold;
-    background: #3ebeb3;
-    font-size: 15px;
-    border-radius: 50px;
-    color: #fff;
-    display: flex;
-    align-items: center;
+    width          : 55px;
+    height         : 55px;
+    font-weight    : bold;
+    background     : #3ebeb3;
+    font-size      : 15px;
+    border-radius  : 50px;
+    color          : #fff;
+    display        : flex;
+    align-items    : center;
     justify-content: center;
-    border: none;
-    padding: 0;
-    margin-top: 0px;
-    text-align: center;
-    letter-spacing: normal !important;
+    border         : none;
+    padding        : 0;
+    margin-top     : 0px;
+    text-align     : center;
+    letter-spacing : normal !important;
 }
-form.updateFormAbout .updateButtonAbout input:focus-visible{
-    border: none;
+
+form.updateFormAbout .updateButtonAbout input:focus-visible {
+    border : none;
     outline: none;
 }
+
 .updateButtonAbout i.fa-edit {
     margin-left: 6px;
 }
+
 form.updateFormAbout {
     position: relative;
 }
-.abt_profile .prfl_img{
+
+.abt_profile .prfl_img {
     position: relative;
 }
+
 .abt_profile .editImgBtn {
-    position: absolute;
-    border: 4px solid #3ebeb3;
+    position     : absolute;
+    border       : 4px solid #3ebeb3;
     border-radius: 100px;
-    /* padding: 5px 7px 7px 8px; */
-    color: #3ebeb3;
-    margin: 10px;
+    /* padding   : 5px 7px 7px 8px; */
+    color        : #3ebeb3;
+    margin       : 10px;
 }
+
 .abt_profile .editImgBtn i.fa-edit {
     padding: 7px 7px 9px 9px;
 }
+
 .abt_profile .editImgBtn input[type="file"] {
     display: none;
 }
+
 .forDetailsBrdr {
     border: 1px solid #ededed;
 }
@@ -2173,50 +2184,57 @@ form.updateFormAbout {
 
 
 ul.menu.headerProfile {
-    display: flex;
+    display    : flex;
     align-items: center;
 }
+
 .profileBtn {
-    width: 40px;
+    width        : 40px;
     border-radius: 100px;
-    height: 40px;
-    overflow: hidden;
-    border: 2px solid #3ebeb3;
-    margin-left: 25px;
+    height       : 40px;
+    overflow     : hidden;
+    border       : 2px solid #3ebeb3;
+    margin-left  : 25px;
 }
+
 .profileBtn img {
     width: 100%;
 }
-.profileToggle{
+
+.profileToggle {
     position: relative;
 }
-.toggleBox{
-    position: absolute;
+
+.toggleBox {
+    position        : absolute;
     background-color: #ffffff;
-    border-radius: 5px;
-    border: 1px solid #3ebeb3;
-    padding: 15px 15px 0;
-    box-shadow: 0px 0.5rem 1rem #00000033;
-    margin-top: 10px;
-    width: 165px;
+    border-radius   : 5px;
+    border          : 1px solid #3ebeb3;
+    padding         : 15px 15px 0;
+    box-shadow      : 0px 0.5rem 1rem #00000033;
+    margin-top      : 10px;
+    width           : 165px;
 }
-.toggleBox li a{
-    color: #000 !important;
+
+.toggleBox li a {
+    color      : #000 !important;
     margin-left: 0px !important;
 }
-.toggleBox li a:hover{
+
+.toggleBox li a:hover {
     color: #3ebeb3 !important;
 }
-.toggleBox li{
+
+.toggleBox li {
     margin-bottom: 15px;
-    display: block !important;
+    display      : block !important;
 }
 
 .editImgBtn_shadow {
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    background: linear-gradient(136deg, rgb(96 88 88 / 87%) 33%, rgba(0,0,0,0) 44%);
+    width     : 150px;
+    height    : 150px;
+    position  : absolute;
+    background: linear-gradient(136deg, rgb(96 88 88 / 87%) 33%, rgba(0, 0, 0, 0) 44%);
 }
 
 nav.navbar.sticky .profileBtn {
@@ -2248,6 +2266,7 @@ nav.navbar.sticky .profileBtn {
         display: block;
         z-index: 999;
     }
+
     .menu-btn i.active:before {
         content: "\f00d";
     }
@@ -2323,23 +2342,27 @@ nav.navbar.sticky .profileBtn {
 
 
 
-    
+
     ul.menu.headerProfile {
         flex-direction: column;
     }
+
     .profileBtn {
         margin-left: 0;
     }
+
     .navbar .menu li.profileToggle {
-        display: flex;
+        display        : flex;
         justify-content: center;
     }
+
     .navbar .menu li.profileToggle a {
         margin: 0px 0;
     }
-    .toggleBox{
+
+    .toggleBox {
         margin-top: 50px;
-        width: auto;
+        width     : auto;
     }
 }
 
@@ -2450,4 +2473,14 @@ nav.navbar.sticky .profileBtn {
     .projects .owl-dots {
         display: none;
     }
+
+    .menu-breadcrump ul li {
+        font-size: 12px;
+    }
+
+    .menu-breadcrump h1 {
+        font-size: 30px;
+    }
+    .bg-breadcrump {
+        height: 280px;}
 }
