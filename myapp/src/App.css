@@ -2329,6 +2329,13 @@ nav.navbar.sticky .profileBtn {
     .profileBtn {
         margin-left: 0;
     }
+    .navbar .menu li.profileToggle {
+        display: flex;
+        justify-content: center;
+    }
+    .toggleBox{
+        margin-top: 50px;
+    }
 }
 
 @media (max-width: 690px) {
