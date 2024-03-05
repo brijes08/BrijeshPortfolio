@@ -919,9 +919,6 @@ footer span a:hover {
         display: block;
         z-index: 999;
     }
-    ul.menu.headerProfile {
-        flex-direction: column;
-    }
     .menu-btn i.active:before {
         content: "\f00d";
     }
@@ -992,6 +989,17 @@ footer span a:hover {
     .contact .contact-content .column {
         width        : 100%;
         margin-bottom: 35px;
+    }
+
+
+
+
+    
+    ul.menu.headerProfile {
+        flex-direction: column;
+    }
+    .profileBtn {
+        margin-left: 0;
     }
 }
 
