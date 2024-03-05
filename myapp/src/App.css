@@ -2364,6 +2364,7 @@ nav.navbar.sticky .profileBtn {
         margin-top: 50px;
         width     : auto;
     }
+
     .menu-breadcrump h1 {
         font-size: 45px;
     }
@@ -2484,6 +2485,12 @@ nav.navbar.sticky .profileBtn {
     .menu-breadcrump h1 {
         font-size: 30px;
     }
+
     .bg-breadcrump {
-        height: 280px;}
+        height: 280px;
+    }
+
+    .projectPage .card {
+        width: 100%;
+    }
 }
