@@ -2338,6 +2338,7 @@ nav.navbar.sticky .profileBtn {
     }
     .toggleBox{
         margin-top: 50px;
+        width: auto;
     }
 }
 
