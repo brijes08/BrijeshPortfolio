@@ -2333,6 +2333,9 @@ nav.navbar.sticky .profileBtn {
         display: flex;
         justify-content: center;
     }
+    .navbar .menu li.profileToggle a {
+        margin: 0px 0;
+    }
     .toggleBox{
         margin-top: 50px;
     }
