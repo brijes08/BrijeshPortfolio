@@ -987,6 +987,9 @@ footer span a:hover {
 .menu-breadcrump ul li:first-child {
     margin-left: 0px;
 }
+.menu-breadcrump ul li:last-child {
+    margin-right: 0;
+}
 
 .menu-breadcrump {
     text-align: center;
@@ -2515,5 +2518,8 @@ nav.navbar.sticky .profileBtn {
     }
     .box_div.register:after, .box_div.register:before {
         width: 450px;
+    }
+    .menu-breadcrump {
+        margin-top: 50px;
     }
 }
