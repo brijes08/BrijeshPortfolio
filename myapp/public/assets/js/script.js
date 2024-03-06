@@ -305,3 +305,15 @@ document.querySelectorAll("a").forEach((links) => {
     cursor2.classList.remove("active");
   };
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  var menuBtn = document.querySelector('.toggleBox.menu-btn');
+  var headerProfile = document.querySelector('.headerProfile');
+  var fabars = document.querySelector('.fa-bars');
+
+  menuBtn.addEventListener('click', function () {
+      headerProfile.classList.remove('active');
+      fabars.classList.remove('active');
+  });
+});
