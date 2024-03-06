@@ -2522,4 +2522,8 @@ nav.navbar.sticky .profileBtn {
     .menu-breadcrump {
         margin-top: 50px;
     }
+    .menu-breadcrump ul li:before {
+        left: -10px;
+        top: 2px;
+    }
 }
