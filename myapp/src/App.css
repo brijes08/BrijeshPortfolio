@@ -2513,4 +2513,7 @@ nav.navbar.sticky .profileBtn {
         height: 745px;
         width: 320px;
     }
+    .box_div.register:after, .box_div.register:before {
+        width: 450px;
+    }
 }
