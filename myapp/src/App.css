@@ -2493,7 +2493,24 @@ nav.navbar.sticky .profileBtn {
     .projectPage .card {
         width: 100%;
     }
+
     .projects .carousel .card .text {
         font-size: 16px;
+    }
+
+    .box_div.login, .box_div.login:after, .box_div.login:before {
+        width: 320px;
+        height: 375px;
+    }
+
+    .box_div .form {
+        padding: 20px;
+    }
+    .box_div .form .inputBox {
+        width: 100%;
+    }
+    .box_div.register, .box_div.register:after, .box_div.register:before {
+        height: 745px;
+        width: 320px;
     }
 }
