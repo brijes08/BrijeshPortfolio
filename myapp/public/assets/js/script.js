@@ -307,7 +307,6 @@ document.querySelectorAll("a").forEach((links) => {
 });
 
 
-document.addEventListener('DOMContentLoaded', function () {
   var menuBtn = document.querySelector('.toggleBox.menu-btn');
   var headerProfile = document.querySelector('.headerProfile');
   var fabars = document.querySelector('.fa-bars');
@@ -316,4 +315,3 @@ document.addEventListener('DOMContentLoaded', function () {
       headerProfile.classList.remove('active');
       fabars.classList.remove('active');
   });
-});
