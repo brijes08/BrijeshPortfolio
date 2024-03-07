@@ -2245,6 +2245,16 @@ nav.navbar.sticky .profileBtn {
 }
 
 
+.box_div.login img {
+    width: 92px;
+    height: 38px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 6px 28px;
+    margin-top: 30px;
+}
+
+
 /* responsive media query start */
 @media (max-width: 1104px) {
     .about .about-content .left img {

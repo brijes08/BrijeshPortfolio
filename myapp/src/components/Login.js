@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import pageBanner from '../images/page-banner.jpg'
 import { NavLink, useNavigate } from "react-router-dom"
 import { useUser } from '../UserContext';
+import Loading from '../images/loading-gif-png.gif'
 
 const Login = () => {
 
@@ -112,7 +113,7 @@ const Login = () => {
             <div className="inputBox">
               <NavLink to='/signup' className="haveAcc">don't have account</NavLink>
             </div>
-            {loading ? <input type="SUBMIT" defaultValue="Wait..." /> : <input type="SUBMIT" defaultValue="LOGIN" onClick={LoginUser} />}
+            {loading ? <img src={Loading} alt="loading"/> : <input type="SUBMIT" defaultValue="LOGIN" onClick={LoginUser} />}
           </form>
         </div>
       </div>
