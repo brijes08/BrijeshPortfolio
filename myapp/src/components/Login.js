@@ -35,6 +35,7 @@ const Login = () => {
 
       if (res.status === 400 || !data) {
         alert("Invalid Email and Password!!!")
+        setLoading(false)
       } else {
         const authToken = data.token;
         const userData = data.data
@@ -73,6 +74,7 @@ const Login = () => {
     } catch (error) {
       console.error('Error during login:', error.message);
       alert('An error occurred during login.');
+      setLoading(false)
     }
   }
 

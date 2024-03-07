@@ -52,6 +52,7 @@ const Signup = () => {
 
     if (res.status === 400 || !data) {
       alert("Registration Failed From Signup")
+      setLoading(false)
     } else {
       alert("Registration Successfull")
       setLoading(false)
