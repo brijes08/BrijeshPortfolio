@@ -2361,6 +2361,7 @@ nav.navbar.sticky .profileBtn {
 
     .navbar .menu li.profileToggle a {
         margin: 0px 0;
+        white-space: nowrap;
     }
 
     .toggleBox {
@@ -2525,5 +2526,19 @@ nav.navbar.sticky .profileBtn {
     .menu-breadcrump ul li:before {
         left: -10px;
         top: 2px;
+    }
+
+
+    .abt_profile {
+        display: block;
+    }
+    .abt_profile .col-md-4, .abt_profile .col-md-8 {
+        width: 100%;
+    }
+    .pfl_dtls ul li {
+        display: block;
+    }
+    section.ab_profile .container {
+        width: 85%;
     }
 }
