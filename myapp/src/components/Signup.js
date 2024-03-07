@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import pageBanner from '../images/page-banner.jpg'
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom'
+import Loading from '../images/loading-gif-png.gif'
 
 const Signup = () => {
 
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
+
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -16,19 +20,20 @@ const Signup = () => {
     cpassword: ""
   });
 
-  const handleInput = (e) =>{
-    setUserData({...userData, [e.target.name]:e.target.value})
+  const handleInput = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value })
   }
   const handleFileInput = (e) => {
-    setUserData({...userData, file:e.target.files[0], [e.target.name]:e.target.value})
+    setUserData({ ...userData, file: e.target.files[0], [e.target.name]: e.target.value })
   }
 
-  const postData = async (e) =>{
+  const postData = async (e) => {
+    setLoading(true)
     e.preventDefault()
 
-    const {name, email, phone, work, images, file, password, cpassword} = userData
+    const { name, email, phone, work, images, file, password, cpassword } = userData
 
-    const formData  = new FormData();
+    const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
     formData.append('phone', phone);
@@ -37,18 +42,19 @@ const Signup = () => {
     formData.append('cpassword', cpassword);
     formData.append('images', images);
     formData.append('file', file);
-    
+
     const res = await fetch('https://portfoliodb-wj77.onrender.com/register', {
-      method:"POST",
+      method: "POST",
       body: formData,
     })
 
     const data = await res.json()
-     
+
     if (res.status === 400 || !data) {
       alert("Registration Failed From Signup")
     } else {
       alert("Registration Successfull")
+      setLoading(false)
       navigate('/login')
     }
   }
@@ -116,7 +122,7 @@ const Signup = () => {
                   <a href="https://akhs1.com/">Forgot password?</a>
                   <a href="https://akhs1.com/">Sign Up</a>
                 </div> */}
-            <input type="submit" defaultValue="REGISTER" onClick={postData} />
+            {loading ? <img src={Loading} alt="loading" /> : <input type="submit" defaultValue="REGISTER" onClick={postData} />}
           </form>
         </div>
       </div>

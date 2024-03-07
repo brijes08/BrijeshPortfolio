@@ -2245,7 +2245,7 @@ nav.navbar.sticky .profileBtn {
 }
 
 
-.box_div.login img {
+.box_div.login img, .box_div.register img {
     width: 92px;
     height: 38px;
     background-color: #ffffff;
