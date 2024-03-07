@@ -11,7 +11,11 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
+  const [loading, setLoading] = useState(false);
+
   const LoginUser = async (e) => {
+    setLoading(true)
     e.preventDefault();
     try {
       const res = await fetch('https://portfoliodb-wj77.onrender.com/signin', {
@@ -62,6 +66,7 @@ const Login = () => {
 
         getAuthToken();
         alert("Login Successfull")
+        setLoading(false)
         navigate('/profile')
       }
     } catch (error) {
@@ -107,7 +112,7 @@ const Login = () => {
             <div className="inputBox">
               <NavLink to='/signup' className="haveAcc">don't have account</NavLink>
             </div>
-            <input type="SUBMIT" defaultValue="LOGIN" onClick={LoginUser} />
+            {loading ? <input type="SUBMIT" defaultValue="Wait..." /> : <input type="SUBMIT" defaultValue="LOGIN" onClick={LoginUser} />}
           </form>
         </div>
       </div>
