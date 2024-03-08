@@ -71,15 +71,18 @@ const Login = () => {
           }
           return null; // Token not found
         }
+        if (res.status === 200 || data) {
         setPopMsg('Login Successfull');
         getAuthToken();
         setShowPopup(!showPopup)
        
         // alert("Login Successfull")
-        setLoading(false)
-        if(!showPopup){
+        
+        if(showPopup===false){
+          setLoading(false)
           navigate('/profile')
         }
+      }
       }
     } catch (error) {
       setShowPopup(!showPopup)
