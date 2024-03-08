@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import pageBanner from '../images/page-banner.jpg'
 import { NavLink, useNavigate } from "react-router-dom"
 import { useUser } from '../UserContext';
-import Loading from '../images/loading-gif-png.gif'
+import Loading from '../images/LoadingGifLine.gif'
 
 const Login = () => {
 
