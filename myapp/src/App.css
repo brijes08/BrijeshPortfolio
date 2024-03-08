@@ -2279,7 +2279,7 @@ nav.navbar.sticky .profileBtn {
     padding: 20px;
     font-family: sans-serif;
     text-align: center;
-    z-index: 9;
+    z-index: 999;
   }
   .logOutBtn {
     background: #fff;
@@ -2292,7 +2292,7 @@ nav.navbar.sticky .profileBtn {
     color: #cf3636;
     width: 100%;
     margin-bottom: 10px;
-    z-index: 9;
+    z-index: 999;
   }
   .delTskBtn {
     background: #fff;

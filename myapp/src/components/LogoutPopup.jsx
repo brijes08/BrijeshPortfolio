@@ -1,12 +1,12 @@
 import React from "react";
 
-const LogoutPopup = ({ popupFunc }) => {
+const LogoutPopup = ({ popupFunc, popUpMsg }) => {
 
   return (
     <div className="logoutMainSec">
       <div className="logoutBG"></div>
       <div className="logoutBox">
-        <p>Are you sure want to Logout?</p>
+        <p>{popUpMsg}</p>
         <button
           className="delTskBtn saveBtn"
           onClick={popupFunc}

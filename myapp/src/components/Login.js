@@ -8,6 +8,7 @@ import LogoutPopup from "./LogoutPopup";
 const Login = () => {
 
   const [showPopup, setShowPopup] = useState(false);
+  const [popMsg, setPopMsg] = useState('');
   const navigate = useNavigate()
   const { setUser } = useUser();
 
@@ -18,8 +19,6 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const LoginUser = async (e) => {
-    handlePopup()
-    setShowPopup(!showPopup)
     e.preventDefault();
     try {
       const res = await fetch('https://portfoliodb-wj77.onrender.com/signin', {
@@ -37,7 +36,9 @@ const Login = () => {
       console.log(data)
 
       if (res.status === 400 || !data) {
-        alert("Invalid Email and Password!!!")
+        setShowPopup(!showPopup)
+        setPopMsg('Invalid Email and Password!!!')
+        // alert("Invalid Email and Password!!!")
         setLoading(false)
       } else {
         const authToken = data.token;
@@ -69,7 +70,9 @@ const Login = () => {
           return null; // Token not found
         }
 
+        setPopMsg('Login Successfull');
         getAuthToken();
+        setShowPopup(!showPopup)
         // alert("Login Successfull")
         setLoading(false)
         if(!showPopup){
@@ -77,14 +80,17 @@ const Login = () => {
         }
       }
     } catch (error) {
+      setShowPopup(!showPopup)
       console.error('Error during login:', error.message);
-      alert('An error occurred during login.');
+      setPopMsg('An error occurred during login.')
+      // alert('An error occurred during login.');
       setLoading(false)
     }
   }
 
   const handlePopup = async () => {
     setShowPopup(!showPopup);
+    setPopMsg('')
   };
 
 
@@ -129,7 +135,7 @@ const Login = () => {
       </div>
     </section>
 
-    {showPopup && <LogoutPopup popupFunc={handlePopup} />}
+    {showPopup && <LogoutPopup popupFunc={handlePopup} popUpMsg={popMsg} />}
   </>)
 }
 
