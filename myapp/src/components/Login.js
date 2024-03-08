@@ -19,6 +19,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const LoginUser = async (e) => {
+    setLoading(true)
     e.preventDefault();
     try {
       const res = await fetch('https://portfoliodb-wj77.onrender.com/signin', {
@@ -40,6 +41,7 @@ const Login = () => {
         setPopMsg('Invalid Email and Password!!!')
         // alert("Invalid Email and Password!!!")
         setLoading(false)
+        
       } else {
         const authToken = data.token;
         const userData = data.data
