@@ -6,7 +6,7 @@ const LogoutPopup = ({ popupFunc, popUpMsg, popupFunction }) => {
     <div className="logoutMainSec">
       <div className="logoutBG"></div>
       <div className="logoutBox">
-        <p>{popUpMsg}An error occurred during login. 😥</p>
+        <p>{popUpMsg}</p>
         {popUpMsg==="Login Successfull"?
         <button
           className="delTskBtn saveBtn"
