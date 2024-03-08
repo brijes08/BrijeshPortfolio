@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import pageBanner from '../images/page-banner.jpg'
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom'
-import Loading from '../images/loading-gif-png.gif'
+import Loading from '../images/LoadingGifLine.gif'
 
 const Signup = () => {
 
