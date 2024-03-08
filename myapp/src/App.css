@@ -2303,13 +2303,11 @@ nav.navbar.sticky .profileBtn {
     cursor: pointer;
     font-size: 16px;
     color: #cf3636;
-    width: 100%;
-    margin-bottom: 10px;
   }
   .saveBtn {
-    background: #18b0ff;
+    background: #3ebeb3;
     color: #eee;
-    border: 1px solid #18b0ff;
+    border: 1px solid #3ebeb3;
   }
   
   /* Ddelete Task CSS Start */
