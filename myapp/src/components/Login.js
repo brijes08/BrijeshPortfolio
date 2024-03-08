@@ -3,9 +3,11 @@ import pageBanner from '../images/page-banner.jpg'
 import { NavLink, useNavigate } from "react-router-dom"
 import { useUser } from '../UserContext';
 import Loading from '../images/LoadingGifLine.gif'
+import LogoutPopup from "./LogoutPopup";
 
 const Login = () => {
 
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate()
   const { setUser } = useUser();
 
@@ -67,9 +69,11 @@ const Login = () => {
         }
 
         getAuthToken();
-        alert("Login Successfull")
+        // alert("Login Successfull")
         setLoading(false)
-        navigate('/profile')
+        if(!showPopup){
+          navigate('/profile')
+        }
       }
     } catch (error) {
       console.error('Error during login:', error.message);
@@ -78,6 +82,9 @@ const Login = () => {
     }
   }
 
+  const logOutUser = async () => {
+    setShowPopup(!showPopup);
+  };
 
 
   return (<>
@@ -120,6 +127,8 @@ const Login = () => {
         </div>
       </div>
     </section>
+
+    {showPopup && <LogoutPopup logOutPop={logOutUser} />}
   </>)
 }
 
