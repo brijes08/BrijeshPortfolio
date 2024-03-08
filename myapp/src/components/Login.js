@@ -98,6 +98,13 @@ const Login = () => {
     setLoading(false)
   };
 
+  const handleNavPopup = async () => {
+    setShowPopup(!showPopup);
+    setPopMsg('')
+    setLoading(false)
+    navigate('/profile')
+  };
+
   
 
   return (<>
@@ -141,7 +148,7 @@ const Login = () => {
       </div>
     </section>
 
-    {showPopup && <LogoutPopup popupFunc={handlePopup} popUpMsg={popMsg} />}
+    {showPopup && <LogoutPopup popupFunc={handleNavPopup} popUpMsg={popMsg} popupFunction={handlePopup} />}
   </>)
 }
 
