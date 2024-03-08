@@ -71,10 +71,10 @@ const Login = () => {
           }
           return null; // Token not found
         }
-
         setPopMsg('Login Successfull');
         getAuthToken();
         setShowPopup(!showPopup)
+       
         // alert("Login Successfull")
         setLoading(false)
         if(!showPopup){
