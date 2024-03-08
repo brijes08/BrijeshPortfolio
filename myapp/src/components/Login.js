@@ -20,6 +20,7 @@ const Login = () => {
 
   const LoginUser = async (e) => {
     setLoading(true)
+    console.log('0')
     e.preventDefault();
     try {
       const res = await fetch('https://portfoliodb-wj77.onrender.com/signin', {
@@ -37,12 +38,14 @@ const Login = () => {
       console.log(data)
 
       if (res.status === 400 || !data) {
-        setShowPopup(!showPopup)
+        console.log('1')
+        setShowPopup(true)
         setPopMsg('Invalid Email and Password!!!')
         // alert("Invalid Email and Password!!!")
         setLoading(false)
         
       } else {
+        console.log('1')
         const authToken = data.token;
         const userData = data.data
         // Store the token in local storage
@@ -74,7 +77,8 @@ const Login = () => {
         if (res.status === 200 || data) {
         setPopMsg('Login Successfull');
         getAuthToken();
-        setShowPopup(!showPopup)
+        console.log('3')
+        setShowPopup(true)
        
         // alert("Login Successfull")
         
