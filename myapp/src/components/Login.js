@@ -7,7 +7,7 @@ import LogoutPopup from "./LogoutPopup";
 
 const Login = () => {
 
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
   const [popMsg, setPopMsg] = useState('');
   const navigate = useNavigate()
   const { setUser } = useUser();
