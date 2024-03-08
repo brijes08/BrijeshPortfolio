@@ -45,7 +45,7 @@ const Login = () => {
         setLoading(false)
         
       } else {
-        console.log('1')
+        console.log('2')
         const authToken = data.token;
         const userData = data.data
         // Store the token in local storage
@@ -78,15 +78,10 @@ const Login = () => {
         setPopMsg('Login Successfull');
         getAuthToken();
         console.log('3')
-        setShowPopup(true)
-       
+        return setShowPopup(true)
         // alert("Login Successfull")
-        
-        if(showPopup===false){
-          setLoading(false)
-          navigate('/profile')
-        }
       }
+
       }
     } catch (error) {
       setShowPopup(!showPopup)
@@ -102,6 +97,7 @@ const Login = () => {
     setPopMsg('')
   };
 
+  
 
   return (<>
     {/* main breadcrump start */}
