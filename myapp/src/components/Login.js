@@ -40,7 +40,7 @@ const Login = () => {
       if (res.status === 400 || !data) {
         console.log('1')
         setShowPopup(true)
-        setPopMsg('Invalid Email and Password!!!')
+        setPopMsg('Invalid Email and Password!!! 😥')
         // alert("Invalid Email and Password!!!")
         setLoading(false)
         
@@ -75,7 +75,7 @@ const Login = () => {
           return null; // Token not found
         }
         if (res.status === 200 || data) {
-        setPopMsg('Login Successfull');
+        setPopMsg('Congratulations Login Successfull 😍');
         getAuthToken();
         console.log('3')
         return setShowPopup(true)
@@ -86,7 +86,7 @@ const Login = () => {
     } catch (error) {
       setShowPopup(!showPopup)
       console.error('Error during login:', error.message);
-      setPopMsg('An error occurred during login.')
+      setPopMsg('An error occurred during login. 😥')
       // alert('An error occurred during login.');
       setLoading(false)
     }

@@ -987,6 +987,7 @@ footer span a:hover {
 .menu-breadcrump ul li:first-child {
     margin-left: 0px;
 }
+
 .menu-breadcrump ul li:last-child {
     margin-right: 0;
 }
@@ -2245,73 +2246,90 @@ nav.navbar.sticky .profileBtn {
 }
 
 
-.box_div.login img, .box_div.register img {
-    width: 92px;
-    height: 38px;
+.box_div.login img,
+.box_div.register img {
+    width              : 92px;
+    height             : 38px;
     /* background-color: #ffffff; */
-    border-radius: 4px;
-    /* padding: 7px 32px; */
-    margin-top: 30px;
+    border-radius      : 4px;
+    /* padding         : 7px 32px; */
+    margin-top         : 30px;
 }
 
 
 
 .logoutMainSec {
     position: relative;
-  }
-  .logoutMainSec .logoutBG {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+}
+
+.logoutMainSec .logoutBG {
+    position  : fixed;
+    top       : 0;
+    right     : 0;
+    left      : 0;
+    bottom    : 0;
     background: #000000ab;
-    z-index: 9;
-  }
-  .logoutMainSec .logoutBox {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 20%;
-    background: #fff;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    padding: 20px;
-    font-family: sans-serif;
-    text-align: center;
-    z-index: 999;
-  }
-  .logOutBtn {
-    background: #fff;
-    padding: 7px 30px;
+    z-index   : 9;
+}
+
+.logoutMainSec .logoutBox {
+    position             : fixed;
+    top                  : 50%;
+    left                 : 50%;
+    width                : auto;
+    background           : #fff;
+    transform            : translate(-50%, -50%);
+    border-radius        : 5px;
+    padding              : 20px;
+    font-family          : sans-serif;
+    text-align           : center;
+    z-index              : 999;
+    -webkit-border-radius: 5px;
+    -moz-border-radius   : 5px;
+    -ms-border-radius    : 5px;
+    -o-border-radius     : 5px;
+}
+
+.logOutBtn {
+    background   : #fff;
+    padding      : 7px 30px;
     border-radius: 6px;
-    outline: none;
-    border: 1px solid #cf3636;
-    cursor: pointer;
-    font-size: 16px;
-    color: #cf3636;
-    width: 100%;
+    outline      : none;
+    border       : 1px solid #cf3636;
+    cursor       : pointer;
+    font-size    : 16px;
+    color        : #cf3636;
+    width        : 100%;
     margin-bottom: 10px;
-    z-index: 999;
-  }
-  .delTskBtn {
-    background: #fff;
-    padding: 7px 30px;
+    z-index      : 999;
+}
+
+.delTskBtn {
+    background   : #fff;
+    padding      : 7px 30px;
     border-radius: 6px;
-    outline: none;
-    border: 1px solid #cf3636;
-    cursor: pointer;
-    font-size: 16px;
-    color: #cf3636;
-  }
-  .saveBtn {
-    background: #3ebeb3;
-    color: #eee;
-    border: 1px solid #3ebeb3;
-  }
-  
-  /* Ddelete Task CSS Start */
-  
+    outline      : none;
+    border       : 1px solid #cf3636;
+    cursor       : pointer;
+    font-size    : 16px;
+    color        : #cf3636;
+}
+
+.saveBtn {
+    background : #3ebeb3;
+    color      : #eee;
+    border     : 1px solid #3ebeb3;
+    font-weight: bold;
+}
+
+.logoutBox p {
+    margin-bottom: 20px;
+    font-size    : 20px;
+    font-weight  : 600;
+}
+
+/* Ddelete Task CSS Start */
+
 
 
 /* responsive media query start */
@@ -2429,7 +2447,7 @@ nav.navbar.sticky .profileBtn {
     }
 
     .navbar .menu li.profileToggle a {
-        margin: 0px 0;
+        margin     : 0px 0;
         white-space: nowrap;
     }
 
@@ -2571,42 +2589,56 @@ nav.navbar.sticky .profileBtn {
         font-size: 16px;
     }
 
-    .box_div.login, .box_div.login:after, .box_div.login:before {
-        width: 320px;
+    .box_div.login,
+    .box_div.login:after,
+    .box_div.login:before {
+        width : 320px;
         height: 375px;
     }
 
     .box_div .form {
         padding: 20px;
     }
+
     .box_div .form .inputBox {
         width: 100%;
     }
-    .box_div.register, .box_div.register:after, .box_div.register:before {
+
+    .box_div.register,
+    .box_div.register:after,
+    .box_div.register:before {
         height: 745px;
-        width: 320px;
+        width : 320px;
     }
-    .box_div.register:after, .box_div.register:before {
+
+    .box_div.register:after,
+    .box_div.register:before {
         width: 450px;
     }
+
     .menu-breadcrump {
         margin-top: 50px;
     }
+
     .menu-breadcrump ul li:before {
         left: -10px;
-        top: 2px;
+        top : 2px;
     }
 
 
     .abt_profile {
         display: block;
     }
-    .abt_profile .col-md-4, .abt_profile .col-md-8 {
+
+    .abt_profile .col-md-4,
+    .abt_profile .col-md-8 {
         width: 100%;
     }
+
     .pfl_dtls ul li {
         display: block;
     }
+
     section.ab_profile .container {
         width: 85%;
     }
