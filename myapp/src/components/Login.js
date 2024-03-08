@@ -95,6 +95,7 @@ const Login = () => {
   const handlePopup = async () => {
     setShowPopup(!showPopup);
     setPopMsg('')
+    setLoading(false)
   };
 
   
