@@ -1,6 +1,6 @@
 import React from "react";
 
-const LogoutPopup = ({ logOutPop }) => {
+const LogoutPopup = ({ popupFunc }) => {
 
   return (
     <div className="logoutMainSec">
@@ -9,7 +9,7 @@ const LogoutPopup = ({ logOutPop }) => {
         <p>Are you sure want to Logout?</p>
         <button
           className="delTskBtn saveBtn"
-          onClick={logOutPop}
+          onClick={popupFunc}
         >
           ok
         </button>

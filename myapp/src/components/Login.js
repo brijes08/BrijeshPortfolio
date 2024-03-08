@@ -18,7 +18,8 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const LoginUser = async (e) => {
-    setLoading(true)
+    handlePopup()
+    setShowPopup(!showPopup)
     e.preventDefault();
     try {
       const res = await fetch('https://portfoliodb-wj77.onrender.com/signin', {
@@ -82,7 +83,7 @@ const Login = () => {
     }
   }
 
-  const logOutUser = async () => {
+  const handlePopup = async () => {
     setShowPopup(!showPopup);
   };
 
@@ -128,7 +129,7 @@ const Login = () => {
       </div>
     </section>
 
-    {showPopup && <LogoutPopup logOutPop={logOutUser} />}
+    {showPopup && <LogoutPopup popupFunc={handlePopup} />}
   </>)
 }
 
