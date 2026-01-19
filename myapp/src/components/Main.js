@@ -210,8 +210,7 @@ const Main = () => {
                 <li>Worked to maintain outstanding attendance record, consistently arriving to work ready to start immediately.</li>
                 <li>Worked with customers to understand needs and provide excellent service</li>
               </ul>
-              {/* <p>Having good interpersonal skills is important to be successful as a web developer, as this role requires interacting with clients and colleagues regularly. I will have positive body language and a strong work ethic. If i can get along with people well, I will communicate well with our colleagues and clients and perform well in my role.</p> 
-              <a href="#.">Read more</a>  */}
+              
             </div>
             <div className="column right">
               <div className="bars">
