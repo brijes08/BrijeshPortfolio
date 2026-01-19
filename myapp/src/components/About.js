@@ -193,7 +193,7 @@ const About = () => {
           </div>
           <div className="column right">
             <div className="text">I'm Brijesh and I'm a <span className="typing"><TypingEffect /></span></div>
-            <p>Experienced Website and Wordpress Developer with over years of experience in Abacusdesk IT Solution Pvt. Ltd. And now I am working as a React Developer at Web2Rise. Excellent reputation for resolving problems and improving customer satisfaction.
+            <p>Experienced Website and Wordpress Developer with over years of experience in Abacusdesk IT Solution Pvt. Ltd. And now I am working as a Website Developer at PhpYouth Software Solution Pvt. Ltd., Excellent reputation for resolving problems and improving customer satisfaction.
               Enthusiastic Website Developer eager to contribute to team success through hard work, attention to detail and excellent organizational skills.
               Organized and dependable candidate successful at managing multiple priorities with a positive attitude.
               Hardworking and passionate job seeker with strong organizational skills eager to secure entry-level Website Developer position. Ready to help team for achieve goals. </p>
